@@ -1,0 +1,119 @@
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 500px;
+  margin: auto;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.login-background {
+  background-image: url(https://files.axshare.com/gsc/X93YSI/93/13/0f/93130f51772f47389b134650e88d3270/images/login/u0.jpg?pageId=71cb63e4-a898-4a14-8142-8f8371bd89fa);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.logo{
+  margin-bottom: 0px;
+  margin-top: -200px;
+  max-width: 33.33vw;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img{
+    width: 300px !important;
+  }
+}
+
+.login-container {
+  padding-top: 0px;
+  margin-bottom: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.login-container img {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.login-container h1 {
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.login-container h2 {
+  font-size: 28px;
+  color: #05a7e6;
+  margin-bottom: 25px;
+  margin-top: 10px;
+}
+
+form{
+  width: 100%;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  height: 50px;
+  font-size: large;
+  cursor: pointer;
+}
+
+.custom-input {
+  height: 40px;
+  border: 2px solid #007bff;
+  padding: 10px;
+}
+
+label{
+  color: #007bff;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);;
+  display: block;
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  text-decoration: underline;
+}

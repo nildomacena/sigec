@@ -17,7 +17,7 @@ import { ListarEstruturasComponent } from './pages/estruturas/listar-estruturas/
 import { TableModule } from 'primeng/table';
 import { TabViewModule } from 'primeng/tabview';
 import { InputTextModule } from 'primeng/inputtext';
-import { NgxMaskDirective } from 'ngx-mask'
+import { NgxMaskModule } from 'ngx-mask'
 
 @NgModule({
   declarations: [
@@ -40,9 +40,9 @@ import { NgxMaskDirective } from 'ngx-mask'
     MenubarModule,
     TabViewModule,
     InputTextModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [
-    provideEnvironmentNgxMask(),
   ],
   bootstrap: [AppComponent]
 })

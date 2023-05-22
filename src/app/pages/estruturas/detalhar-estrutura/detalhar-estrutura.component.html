@@ -1,0 +1,170 @@
+<div class="main-container">
+  <div class="row mt-2">
+    <div class="col-3 justify-content-start">
+      <i
+        class="fa fa-building"
+        style="margin-right: 10px; color: #00a5e4; font-size: 20px"
+      ></i
+      ><span>Estruturas > <strong>Cadastrar Estruturas</strong></span>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <p-tabView>
+        <p-tabPanel header="DADOS GERAIS">
+          <div class="tab-content">
+            <div class="row">
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <label for="codigo-sigec" class="custom-label"
+                    >Código SIGEC</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="codigo-sigec"
+                    aria-label="Código SIGEC"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <label for="codigo-sap" class="custom-label"
+                    >Código SAP</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="codigo-sap"
+                    aria-label="Código SAP"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="form-group">
+                  <label for="nome-estrutura" class="custom-label"
+                    >Nome da Estrutura</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nome-estrutura"
+                    aria-label="Nome da Estrutura"
+                  />
+                </div>
+              </div>
+              <div class="form-group col-2">
+                <label for="select-unidade" class="custom-label">Unidade</label>
+                <select class="form-control" id="select-unidade">
+                  <option>Centro</option>
+                  <option>Zona Leste</option>
+                  <option>Zona Sul</option>
+                  <option>Zona Norte</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2 mb-2">
+              <div class="col">
+                <h3>Local</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <label for="cep" class="custom-label">CEP</label>
+                  <input
+                    mask="00000-000"
+                    type="text"
+                    class="form-control"
+                    id="cep"
+                    aria-label="CEP"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <div class="form-group">
+                  <label for="cep" class="custom-label">Endereço*</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cep"
+                    aria-label="CEP"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-1">
+                <div class="form-group">
+                  <label for="cep" class="custom-label">Número</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cep"
+                    aria-label="CEP"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <label class="custom-label" for="uf">Estado</label>
+                  <select class="form-control" id="uf">
+                    <option [value]="null" selected>Selecione a UF</option>
+                    <option *ngFor="let uf of ufs" [value]="uf.sigla">
+                      {{ uf.nome }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="form-group">
+                  <label class="custom-label" for="uf">Município*</label>
+                  <select class="form-control" id="uf">
+                    <option [value]="null" selected>
+                      Selecione o Município
+                    </option>
+                    <option *ngFor="let uf of ufs" [value]="uf.sigla">
+                      {{ uf.nome }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-lg-2">
+                <button type="button" class="btn btn-outline-primary w-100">
+                  Editar Campos
+                </button>
+              </div>
+              <div class="col-lg-2">
+                <button type="button" disabled class="btn btn-primary w-100">
+                  Salvar Alterações
+                </button>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="ESTRUTURA">
+          <p>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+            quae ab illo inventore veritatis et quasi architecto beatae vitae
+            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+            eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci
+            velit, sed quia non numquam eius modi.
+          </p>
+        </p-tabPanel>
+        <p-tabPanel header="ANEXOS">
+          <p>
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui
+            blanditiis praesentium voluptatum deleniti atque corrupti quos
+            dolores et quas molestias excepturi sint occaecati cupiditate non
+            provident, similique sunt in culpa qui officia deserunt mollitia
+            animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis
+            est et expedita distinctio. Nam libero tempore, cum soluta nobis est
+            eligendi optio cumque nihil impedit quo minus.
+          </p>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
+  </div>
+</div>

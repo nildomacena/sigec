@@ -1,0 +1,27 @@
+.custom-thead th {
+  color: #00a5e5 !important;
+  font-size: 12px !important;
+}
+
+.actions {
+  text-align: center !important;
+  background-color: #00a5e5 !important;
+  color: white !important;
+}
+
+.actions-column {
+  width: 150px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container {
+  display: flex;
+  gap: 5px;
+}
+
+.custom-button {
+  background-color: #00a5e5 !important;
+  color: #fff !important;
+}

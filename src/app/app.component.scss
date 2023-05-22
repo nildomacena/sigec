@@ -1,0 +1,49 @@
+.custom-navbar {
+  background-color: #00a5e4;
+  color: white !important;
+  border-bottom: 2px solid #52ae32;
+}
+
+.custom-navbar a {
+  color: white !important;
+}
+
+.icon-sidemenu {
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.sidebar {
+  background-color: #00354c !important;
+}
+
+.main-footer {
+  background-color: #00a5e4;
+  color: white !important;
+  border-top: 2px solid #52ae32;
+  text-align: center;
+}
+
+.menu-open .nav-treeview .nav-item {
+  height: 100px;
+}
+.menu-open .nav-treeview .nav-item a {
+  height: 100%;
+  display: flex; /* Torna o elemento um flex container */
+  align-items: center; /* Centraliza verticalmente os itens dentro do container */
+  justify-content: left; /* Centraliza horizontalmente os itens dentro do container */
+  /* Define a altura do elemento */
+}
+
+.nav-icon {
+  font-size: x-large !important;
+  margin-right: 10px !important;
+}
+.label-sidebar {
+  font-size: x-large !important;
+}
+
+a {
+  cursor: pointer;
+}
+

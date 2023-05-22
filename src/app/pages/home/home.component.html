@@ -1,0 +1,87 @@
+<div class="main-container">
+  <div class="row">
+    <div class="col-3 justify-content-start">
+      <i
+        class="fa fa-home"
+        style="margin-right: 10px; color: #00a5e4; font-size: 20px"
+      ></i
+      ><span>Página Inicial</span>
+    </div>
+    <div class="col-3 col-offset-6 justify-content-end">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Text input with dropdown button"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            style="background-color: #00a5e4; color: white; font-weight: bold"
+            type="button"
+          >
+            <i
+              class="fa fa-search"
+              style="margin-right: 10px; color: white"
+            ></i>
+            Pesquisar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card col-12" style="padding: 20px">
+      <div class="row">
+        <div class="col-12">
+          <p class="mb-1">
+            <strong
+              >Olá <span style="color: #00a5e4">Fulano de Tal</span>, bem-vindo
+              ao Sistema de Gestão de Estruturas Civis</strong
+            >
+          </p>
+          <p>O que você deseja?</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <button
+            class="btn btn-primary btn-block btn-lg menu-button"
+            style="height: 200px"
+            [routerLink]="['/cadastrar-estrutura']"
+          >
+            <img
+              src="https://files.axshare.com/gsc/X93YSI/93/13/0f/93130f51772f47389b134650e88d3270/images/home/u60_mouseover.svg?pageId=4334bbaf-a2b3-4938-a2da-043559beaedf"
+              alt=""
+            /><br />
+            <span>Cadastrar Estruturas</span>
+          </button>
+        </div>
+        <div class="col-4">
+          <button
+            class="btn btn-primary btn-block btn-lg menu-button"
+            style="height: 200px"
+          >
+            <img
+              src="https://files.axshare.com/gsc/X93YSI/93/13/0f/93130f51772f47389b134650e88d3270/images/home/u60_mouseover.svg?pageId=4334bbaf-a2b3-4938-a2da-043559beaedf"
+              alt=""
+            /><br />
+            <span>Inspeção de Estrutura</span>
+          </button>
+        </div>
+        <div class="col-4">
+          <button
+            class="btn btn-primary btn-block btn-lg menu-button"
+            style="height: 200px"
+          >
+            <img
+              src="https://files.axshare.com/gsc/X93YSI/93/13/0f/93130f51772f47389b134650e88d3270/images/home/u71_mouseover.svg?pageId=4334bbaf-a2b3-4938-a2da-043559beaedf"
+              alt=""
+            /><br />
+            <span>Relatórios</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

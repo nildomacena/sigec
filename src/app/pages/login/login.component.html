@@ -1,0 +1,32 @@
+<div class="login-background grid">
+  <div
+    class="login-container col-10 col-offset-1 md:col-8 md:col-offset-2 lg:col-6 lg:col-offset-3 xl:col-4 xl:col-offset-4"
+  >
+    <div class="logo">
+      <img
+        src="https://site.sabesp.com.br/site/uploads/image/asabesp/marca_sabesp/sabesp_horizontal(1).png"
+        alt="Logo da Sabesp"
+      />
+    </div>
+    <h1>Sistema de Gestão de Estruturas Civis</h1>
+    <h2>SIGEC</h2>
+    <form (submit)="goToHome()">
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input class="custom-input" type="email" id="email" name="email" />
+      </div>
+      <div class="form-group">
+        <label for="senha">Senha:</label>
+        <input
+          class="custom-input"
+          type="password"
+          id="senha"
+          name="senha"
+          required
+        />
+      </div>
+      <button type="submit">Login</button>
+      <a href="#">Esqueci minha senha</a>
+    </form>
+  </div>
+</div>

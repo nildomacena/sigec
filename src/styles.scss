@@ -1,1 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
+$primary-color: #ff00bf;
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+}
+
+:root {
+  --primary-color: #007bff;
+}
+
+.main-container {
+  padding: 20px;
+}
+
+.card {
+  padding: 15px !important;
+}
+
+.card-title {
+  margin: 10px 0 !important;
+  font-size: 18px !important;
+  font-weight: bold !important;
+  padding-left: 0px !important;
+}
+
+.btn {
+  height: 50px;
+}
+
+.form-group input {
+  height: 50px !important;
+  border-radius: 5px !important;
+  border: 1px solid #bfe8f8 !important;
+}
+
+.form-group select {
+  height: 50px !important;
+  // padding: 25px 10px !important;
+  border-radius: 5px !important;
+  border: 1px solid #bfe8f8 !important;
+}
+
+
+/* TABS */
+.p-tabview .p-tabview-nav{
+  background-color: transparent !important;
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  background-color: white !important;
+  border-color: #52ae32 !important;
+}
+
+.p-tabview .p-tabview-nav .p-tabview-nav-link {
+  background-color: #d5d5d5 !important;
+}
+
+.p-tabview
+  .p-tabview-nav
+  li:not(.p-highlight):not(.p-disabled):hover
+  .p-tabview-nav-link {
+  background-color: white !important;
+  border-color: #52ae32 !important;
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-title {
+  color: #00a5e4 !important;
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  padding-right: 100px !important;
+  padding-left: 100px !important;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
