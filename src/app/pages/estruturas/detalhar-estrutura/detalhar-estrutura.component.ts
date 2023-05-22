@@ -12,6 +12,10 @@ import { Utils } from 'src/app/shared/utils';
 })
 export class DetalharEstruturaComponent {
   estrutura?: IEstrutura;
+  tiposEstruturas = Utils.tiposEstruturas;
+  materiais = Utils.materiais;
+  situacoes = Utils.situacoes;
+
   ufs: IUF[] = [];
 
   constructor(private route: ActivatedRoute, private estruturaService: EstruturasService) {

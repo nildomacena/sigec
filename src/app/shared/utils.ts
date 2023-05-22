@@ -1,5 +1,6 @@
 import { IMaterial } from "../interfaces/material";
 import { ISituacao } from "../interfaces/situacao";
+import { ITipoEstrutura } from "../interfaces/tipo-estrutura";
 import { IUF } from "../interfaces/uf";
 
 export class Utils {
@@ -33,7 +34,7 @@ export class Utils {
     { sigla: 'TO', nome: 'Tocantins' }
   ];
 
-  static ITipoEstrutura: any[] = [
+  static tiposEstruturas: ITipoEstrutura[] = [
     { id: 1, nome: 'Adutora' },
     { id: 2, nome: 'Booster' },
     { id: 3, nome: 'Caixa de Areia' },

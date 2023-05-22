@@ -42,9 +42,8 @@ body {
   border: 1px solid #bfe8f8 !important;
 }
 
-
 /* TABS */
-.p-tabview .p-tabview-nav{
+.p-tabview .p-tabview-nav {
   background-color: transparent !important;
 }
 
@@ -74,4 +73,10 @@ body {
   padding-left: 100px !important;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
+}
+
+/* CALENDAR */
+
+.p-calendar {
+  width: 100% !important;
 }

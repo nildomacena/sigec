@@ -18,6 +18,7 @@ import { TableModule } from 'primeng/table';
 import { TabViewModule } from 'primeng/tabview';
 import { InputTextModule } from 'primeng/inputtext';
 import { NgxMaskModule } from 'ngx-mask'
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { NgxMaskModule } from 'ngx-mask'
     MenubarModule,
     TabViewModule,
     InputTextModule,
+    CalendarModule,
     NgxMaskModule.forRoot()
   ],
   providers: [
