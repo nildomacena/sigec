@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CadastrarEstruturaComponent } from './pages/estruturas/cadastrar-estrutura/cadastrar-estrutura.component';
 import { DetalharEstruturaComponent } from './pages/estruturas/detalhar-estrutura/detalhar-estrutura.component';
 import { ListarEstruturasComponent } from './pages/estruturas/listar-estruturas/listar-estruturas.component';
+import { InspecaoOperacionalComponent } from './pages/inspecoes/inspecao-operacional/inspecao-operacional.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'estruturas', component: ListarEstruturasComponent },
   { path: 'cadastrar-estrutura', component: CadastrarEstruturaComponent },
   { path: 'detalhar-estrutura/:estruturaId', component: DetalharEstruturaComponent },
+  { path: 'cadastrar-inspecao-op', component: InspecaoOperacionalComponent },
 ];
 
 @NgModule({

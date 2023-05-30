@@ -15,7 +15,15 @@ export class DetalharEstruturaComponent {
   tiposEstruturas = Utils.tiposEstruturas;
   materiais = Utils.materiais;
   situacoes = Utils.situacoes;
-
+  anexos = [
+    { nome: 'Anexo 1.pdf', descricao: 'Descrição do Arquivo' },
+    { nome: 'Anexo 2.pdf', descricao: 'Descrição do Arquivo' },
+    { nome: 'Anexo 3.pdf', descricao: 'Descrição do Arquivo' },
+    { nome: 'Anexo 4.pdf', descricao: 'Descrição do Arquivo' },
+    { nome: 'Anexo 5.pdf', descricao: 'Descrição do Arquivo' },
+    { nome: 'Anexo 6.pdf', descricao: 'Descrição do Arquivo' },
+    { nome: 'Anexo 7.pdf', descricao: 'Descrição do Arquivo' },
+  ];
   ufs: IUF[] = [];
 
   constructor(private route: ActivatedRoute, private estruturaService: EstruturasService) {
@@ -30,4 +38,6 @@ export class DetalharEstruturaComponent {
       console.log(this.estrutura)
     });
   }
+  inspecionarEstrutura(value: any) { }
+  visualizarEstrutura(value: any) { }
 }

@@ -1,5 +1,5 @@
 <div class="main-container">
-  <div class="row">
+  <div class="row mb-3">
     <div class="col-3 justify-content-start">
       <i
         class="fa fa-home"
@@ -7,11 +7,13 @@
       ></i
       ><span>Página Inicial</span>
     </div>
-    <div class="col-3 col-offset-6 justify-content-end">
+    <!-- <div class="col-6"></div> -->
+    <div class="col-3 offset-6 justify-content-end">
       <div class="input-group">
         <input
           type="text"
           class="form-control"
+          style="height: 50px"
           aria-label="Text input with dropdown button"
         />
         <div class="input-group-append">
@@ -48,7 +50,7 @@
           <button
             class="btn btn-primary btn-block btn-lg menu-button"
             style="height: 200px"
-            [routerLink]="['/cadastrar-estrutura']"
+            [routerLink]="['/estruturas']"
           >
             <img src="assets/icons/building.svg" alt="" /><br />
             <span>Cadastrar Estruturas</span>
@@ -57,6 +59,7 @@
         <div class="col-4">
           <button
             class="btn btn-primary btn-block btn-lg menu-button"
+            [routerLink]="['/cadastrar-inspecao-op']"
             style="height: 200px"
           >
             <img src="assets/icons/search_building.svg" alt="" /><br />

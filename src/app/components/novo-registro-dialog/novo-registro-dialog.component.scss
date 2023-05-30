@@ -1,0 +1,54 @@
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #00a5e4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.question-mark {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+p-radioButton {
+  height: 30px !important;
+}
+
+.border-default {
+  border: 1px solid #00a5e4 !important;
+  border-radius: 10px !important;
+}
+
+.info-button {
+  background-color: #00a5e4 !important;
+  margin-bottom: -10px;
+  cursor: pointer;
+}
+
+h3 {
+  font-weight: bold;
+  color: #00a5e4;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.custom-button {
+  width: 100% !important;
+  background-color: #00a5e4;
+  height: 60px;
+  border: #00a5e4;
+}
+
+.attachment-button .p-button {
+  background-color: #18a4de !important;
+}
+
+.p-button-icon {
+  color: white !important;
+}

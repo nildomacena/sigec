@@ -1,11 +1,597 @@
 <div class="main-container">
-  <div class="row mt-2">
+  <div class="row mt-2 mb-5">
     <div class="col-3 justify-content-start">
       <i
         class="fa fa-building"
         style="margin-right: 10px; color: #00a5e4; font-size: 20px"
       ></i
-      ><span>Estruturas > <strong>Cadastrar Estrutura</strong></span>
+      ><span>Estruturas > <strong>Cadastrar Estruturas</strong></span>
     </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <p-tabView
+        [activeIndex]="tabIndex"
+        (onChange)="onChangeIndex($event.index)"
+      >
+        <p-tabPanel header="DADOS GERAIS">
+          <div class="tab-content">
+            <div class="row">
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <label for="codigo-sigec" class="custom-label"
+                    >Código SIGEC</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="codigo-sigec"
+                    aria-label="Código SIGEC"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <label for="codigo-sap" class="custom-label"
+                    >Código SAP</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="codigo-sap"
+                    aria-label="Código SAP"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="form-group">
+                  <label for="nome-estrutura" class="custom-label"
+                    >Nome da Estrutura</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nome-estrutura"
+                    aria-label="Nome da Estrutura"
+                  />
+                </div>
+              </div>
+              <div class="form-group col-2">
+                <label for="select-unidade" class="custom-label">Unidade</label>
+                <select class="form-control" id="select-unidade">
+                  <option>Centro</option>
+                  <option>Zona Leste</option>
+                  <option>Zona Sul</option>
+                  <option>Zona Norte</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2 mb-2">
+              <div class="col">
+                <h3>Local</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <label for="cep" class="custom-label">CEP</label>
+                  <input
+                    mask="00000-000"
+                    type="text"
+                    class="form-control"
+                    id="cep"
+                    aria-label="CEP"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <div class="form-group">
+                  <label for="cep" class="custom-label">Endereço*</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cep"
+                    aria-label="CEP"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-1">
+                <div class="form-group">
+                  <label for="cep" class="custom-label">Número</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cep"
+                    aria-label="CEP"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <label class="custom-label" for="uf">Estado</label>
+                  <select class="form-control" id="uf">
+                    <option [value]="null" selected>Selecione a UF</option>
+                    <option *ngFor="let uf of ufs" [value]="uf.sigla">
+                      {{ uf.nome }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="form-group">
+                  <label class="custom-label" for="uf">Município*</label>
+                  <select class="form-control" id="uf">
+                    <option [value]="null" selected>
+                      Selecione o Município
+                    </option>
+                    <option *ngFor="let uf of ufs" [value]="uf.sigla">
+                      {{ uf.nome }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-xxl-1 col-lg-2">
+                <button type="button" disabled class="btn btn-primary w-100">
+                  Avançar
+                </button>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="ESTRUTURA">
+          <div class="tab-content">
+            <div class="row">
+              <div class="form-group col-lg-2 col-md-3">
+                <label for="select-tipo" class="custom-label"
+                  >Tipo de Estrutura</label
+                >
+                <select class="form-control" id="select-tipo">
+                  <option *ngFor="let tipo of tiposEstruturas" [value]="tipo">
+                    {{ tipo.nome }}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group col-lg-2 col-md-3">
+                <label for="select-tipo" class="custom-label">Câmara *</label>
+                <select class="form-control" id="select-tipo">
+                  <option [value]="null">Não aplicável</option>
+                  <option value="1">01</option>
+                  <option value="2">02</option>
+                  <option value="3">03</option>
+                  <option value="4">04</option>
+                  <option value="5">05</option>
+                </select>
+              </div>
+              <div class="form-group col-lg-2 col-md-3">
+                <label for="select-tipo" class="custom-label">Células *</label>
+                <select class="form-control" id="select-tipo">
+                  <option value="1">01</option>
+                  <option value="2">02</option>
+                  <option value="3">03</option>
+                  <option value="4">04</option>
+                </select>
+              </div>
+              <div class="form-group col-lg-2 col-md-3">
+                <label for="select-tipo" class="custom-label">Material *</label>
+                <select class="form-control" id="select-tipo">
+                  <option value="1">01</option>
+                  <option value="2">02</option>
+                  <option value="3">03</option>
+                  <option value="4">04</option>
+                </select>
+              </div>
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <label for="capacidade" class="custom-label"
+                    >Capacidade *</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="capacidade"
+                    placeholder="Ex: 00 m³"
+                    aria-label="Nome da Estrutura"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <label class="custom-label" for="situacao">Situações</label>
+                  <select class="form-control" id="situacao">
+                    <option [value]="null" selected>Situação</option>
+                    <option
+                      *ngFor="let situacao of situacoes"
+                      [value]="situacao"
+                    >
+                      {{ situacao.nome }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2">
+                <label class="custom-label" for="date_construcao"
+                  >Data de Construção</label
+                >
+                <p-calendar id="date_construcao"></p-calendar>
+              </div>
+              <div class="col-lg-2">
+                <label class="custom-label" for="date_operacao"
+                  >Data de Operação</label
+                >
+                <p-calendar id="date_operacao"></p-calendar>
+              </div>
+            </div>
+
+            <div class="row mt-4 mb-2">
+              <div class="col">
+                <h3>Dimensões</h3>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <label for="largura" class="custom-label">Largura *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="largura"
+                    placeholder="Ex: 00 m"
+                    aria-label="Nome da Estrutura"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <label for="comprimento" class="custom-label"
+                    >Comprimento *</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="comprimento"
+                    placeholder="Ex: 00 m"
+                    aria-label="Comprimento"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <label for="diâmetro" class="custom-label">Diâmetro *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="diâmetro"
+                    placeholder="Ex: 00 m"
+                    aria-label="Diâmetro"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <label for="altura" class="custom-label">Altura *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="altura"
+                    placeholder="Ex: 00 m"
+                    aria-label="Altura"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-xxl-1 col-lg-2">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary w-100"
+                  (click)="voltar()"
+                >
+                  Voltar
+                </button>
+              </div>
+              <div class="col-xxl-1 col-lg-2">
+                <button type="button" disabled class="btn btn-primary w-100">
+                  Avançar
+                </button>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="ELEMENTOS">
+          <div class="tab-content">
+            <div class="row">
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <label for="nome_estrutura" class="custom-label"
+                    >Nome da Estrutura</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nome_estrutura"
+                    placeholder="Nome da Estrutura"
+                    aria-label="Nome da Estrutura"
+                  />
+                </div>
+              </div>
+              <div class="col"></div>
+              <div class="col-xxl-1 col-lg-2 pb-3 d-flex align-items-end">
+                <button
+                  class="btn btn-success w-100"
+                  [routerLink]="['/cadastrar-estrutura']"
+                >
+                  <i class="fas fa-plus mr-2"></i>Novo Elemento
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <p-table
+                  [value]="anexos"
+                  styleClass="p-datatable-striped w-100"
+                >
+                  <ng-template
+                    pTemplate="header"
+                    style="height: 60px !important"
+                  >
+                    <tr class="custom-thead">
+                      <th>NOME DO GRUPO</th>
+                      <th>TIPO DE ELEMENTO</th>
+                      <th>QTD FACES</th>
+                      <th>ÁREA TOTAL</th>
+                      <th>QUANTIDADE</th>
+                      <th>> DIMENSÃO</th>
+                      <th>< DIMENSÃO</th>
+                      <th>∑ LADOS</th>
+                      <th>ÁREA SUPERFÍCIE</th>
+                      <th>ÁREA DIFERENÇA</th>
+                      <th>OBSERVAÇÕES</th>
+                      <th class="highlight">AÇÕES</th>
+                    </tr>
+                  </ng-template>
+
+                  <ng-template pTemplate="body" let-estrutura>
+                    <tr>
+                      <td>{{ estrutura.descricao }}</td>
+                      <td>{{ estrutura.nome }}</td>
+                      <td>{{ estrutura.descricao }}</td>
+                      <td>{{ estrutura.nome }}</td>
+                      <td>{{ estrutura.descricao }}</td>
+                      <td>{{ estrutura.nome }}</td>
+                      <td>{{ estrutura.descricao }}</td>
+                      <td>{{ estrutura.nome }}</td>
+                      <td>{{ estrutura.descricao }}</td>
+                      <td>{{ estrutura.nome }}</td>
+                      <td>{{ estrutura.descricao }}</td>
+                      <td>{{ estrutura.nome }}</td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+                <div class="no-element" *ngIf="estruturas.length <= 0">
+                  NENHUM ELEMENTO CADASTRADO
+                </div>
+                <div class="row mt-3">
+                  <div class="col-xxl-1 col-lg-2">
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary w-100"
+                      (click)="voltar()"
+                    >
+                      Voltar
+                    </button>
+                  </div>
+                  <div class="col-xxl-1 col-lg-2">
+                    <button
+                      type="button"
+                      disabled
+                      class="btn btn-primary w-100"
+                    >
+                      Avançar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="ANEXOS" styleClass="mb-5">
+          <div class="row mt-2 mb-2">
+            <div class="col">
+              <h3>Pesquisar Anexo</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-6">
+              <div class="form-group">
+                <!-- <label for="nome-estrutura" class="custom-label">&nbsp;</label> -->
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nome-estrutura"
+                  placeholder="Pesquisar Descritivo ou Nome do Arquivo"
+                  aria-label="Nome da Estrutura"
+                />
+              </div>
+            </div>
+            <div class="col-lg-4 col-6">
+              <div class="form-group">
+                <!-- <label for="nome-estrutura" class="custom-label">&nbsp;</label> -->
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nome-estrutura"
+                  placeholder="Pesquisar Descritivo ou Nome do Arquivo"
+                  aria-label="Nome da Estrutura"
+                />
+              </div>
+            </div>
+            <!-- <div class="col-12 col-lg-1"></div> -->
+            <div class="col-lg-4 col-md-6 col-12">
+              <div class="row">
+                <div class="col">
+                  <button type="button" class="btn btn-primary w-100">
+                    <i
+                      class="fa fa-search"
+                      style="margin-right: 10px; color: white"
+                    ></i
+                    >Pesquisar
+                  </button>
+                </div>
+                <div class="col">
+                  <button type="button" class="btn btn-success w-100">
+                    <i
+                      class="fa fa-plus"
+                      style="margin-right: 10px; color: white"
+                    ></i
+                    >Incluir Arquivos
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-3">
+            <div class="col-xxl-4 col-12">
+              <p class="table-title">Plantas</p>
+              <p-table [value]="anexos" styleClass="p-datatable-striped w-100">
+                <ng-template pTemplate="header" style="height: 60px !important">
+                  <tr class="custom-thead">
+                    <th>DESCRITIVO</th>
+                    <th>ARQUIVO</th>
+                    <th style="width: 128px; text-align: center">AÇÕES</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-estrutura>
+                  <tr>
+                    <td>{{ estrutura.descricao }}</td>
+                    <td>{{ estrutura.nome }}</td>
+                    <td class="p-col-shrink actions-column">
+                      <div class="button-container">
+                        <button
+                          pButton
+                          icon="pi pi-eye"
+                          class="p-button-text custom-button"
+                          (click)="visualizarEstrutura(estrutura)"
+                        ></button>
+                        <button
+                          pButton
+                          icon="pi pi-building"
+                          class="p-button-text custom-button"
+                          (click)="inspecionarEstrutura(estrutura)"
+                        ></button>
+                      </div>
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+            <div class="col-xxl-4 col-12">
+              <p class="table-title">Fotografias</p>
+              <p-table [value]="anexos" styleClass="p-datatable-striped w-100">
+                <ng-template pTemplate="header">
+                  <tr class="custom-thead">
+                    <th
+                      width="50px"
+                      style="padding-left: 5px; padding-right: 5px"
+                    >
+                      <img
+                        src="assets/images/image-placeholder.svg"
+                        class="w-100 h-100"
+                      />
+                    </th>
+                    <th>DESCRITIVO</th>
+                    <th>ARQUIVO</th>
+                    <th style="width: 128px; text-align: center">AÇÕES</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-estrutura>
+                  <tr>
+                    <td style="padding-left: 5px; padding-right: 5px">
+                      <img
+                        src="assets/images/image-placeholder.svg"
+                        style="height: 100% !important; width: 100% !important"
+                      />
+                    </td>
+                    <td>{{ estrutura.descricao }}</td>
+                    <td>{{ estrutura.nome }}</td>
+                    <td class="p-col-shrink actions-column">
+                      <div class="button-container">
+                        <button
+                          pButton
+                          icon="pi pi-eye"
+                          class="p-button-text custom-button"
+                          (click)="visualizarEstrutura(estrutura)"
+                        ></button>
+                        <button
+                          pButton
+                          icon="pi pi-building"
+                          class="p-button-text custom-button"
+                          (click)="inspecionarEstrutura(estrutura)"
+                        ></button>
+                      </div>
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+            <div class="col-xxl-4 col-12">
+              <p class="table-title">Documentos</p>
+              <p-table [value]="anexos" styleClass="p-datatable-striped w-100">
+                <ng-template pTemplate="header">
+                  <tr class="custom-thead">
+                    <th>DESCRITIVO</th>
+                    <th>ARQUIVO</th>
+                    <th style="width: 128px; text-align: center">AÇÕES</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-estrutura>
+                  <tr>
+                    <td>{{ estrutura.descricao }}</td>
+                    <td>{{ estrutura.nome }}</td>
+                    <td class="p-col-shrink actions-column">
+                      <div class="button-container">
+                        <button
+                          pButton
+                          icon="pi pi-eye"
+                          class="p-button-text custom-button"
+                          (click)="visualizarEstrutura(estrutura)"
+                        ></button>
+                        <button
+                          pButton
+                          icon="pi pi-building"
+                          class="p-button-text custom-button"
+                          (click)="inspecionarEstrutura(estrutura)"
+                        ></button>
+                      </div>
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-xxl-1 col-lg-2">
+              <button
+                type="button"
+                class="btn btn-outline-primary w-100"
+                (click)="voltar()"
+              >
+                Voltar
+              </button>
+            </div>
+            <div class="col-xxl-1 col-lg-2">
+              <button type="button" disabled class="btn btn-primary w-100">
+                Cadastrar
+              </button>
+            </div>
+          </div>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
+    <div style="height: 100px"></div>
   </div>
 </div>

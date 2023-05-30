@@ -1,0 +1,232 @@
+<div class="main-container">
+  <div class="row">
+    <div class="form-group col-5">
+      <label for="select-unidade" class="custom-label">Elemento</label><br />
+      <p-dropdown
+        styleClass="w-100"
+        [options]="[
+          'Parede',
+          'Viga',
+          'Pilar',
+          'Lage de Cobertura',
+          'Lage de Fundo'
+        ]"
+        [(ngModel)]="elementoSelecionado"
+        placeholder="Selecione"
+        id="select-anomalia"
+      ></p-dropdown>
+    </div>
+
+    <div class="form-group col-7">
+      <label for="select-anomalia" class="custom-label">Anomalia</label><br />
+      <p-dropdown
+        styleClass="w-100"
+        [options]="anomalias"
+        [(ngModel)]="anomaliaSelecionada"
+        optionLabel="nome"
+        placeholder="Selecione"
+        id="select-anomalia"
+      ></p-dropdown>
+    </div>
+  </div>
+  <div class="row m-0">
+    <div class="col-7">
+      <span style="margin-left: -10px" class="custom-label">Classificação</span>
+      <div class="row border-default p-3">
+        <div class="col-3">
+          <p-radioButton
+            name="P"
+            value="p"
+            [(ngModel)]="classificacaoSelecionada"
+            inputId="p"
+          ></p-radioButton>
+          <label for="p" class="ml-2 mb-1">P</label>
+        </div>
+        <div class="col-3">
+          <p-radioButton
+            name="M"
+            value="m"
+            [(ngModel)]="classificacaoSelecionada"
+            inputId="m"
+          ></p-radioButton>
+          <label for="m" class="ml-2 mb-1">M</label>
+        </div>
+        <div class="col-3">
+          <p-radioButton
+            name="G"
+            value="g"
+            [(ngModel)]="classificacaoSelecionada"
+            inputId="g"
+          ></p-radioButton>
+          <label for="g" class="ml-2 mb-1">G</label>
+        </div>
+        <div class="col-1">
+          <p-overlayPanel #op>
+            <p>
+              P = Anamolia que aparece de forma leve e/ou em pequena quantidade.
+            </p>
+            <p>
+              P = Anamolia que aparece de forma moderada e/ou quantidade
+              mediana.
+            </p>
+            <p>
+              P = Anamolia que aparece de forma intensa e/ou em grande
+              quantidade.
+            </p>
+          </p-overlayPanel>
+          <div
+            class="circle info-button"
+            style="margin-bottom: -10px"
+            (click)="op.toggle($event)"
+          >
+            <span class="question-mark">?</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-2"></div>
+
+    <div class="col-3 pr-0">
+      <span class="custom-label">Recente</span>
+      <div
+        class="border-default p-3 d-flex align-items-center justify-content-center"
+        style="margin-bottom: 5px"
+      >
+        <p-inputSwitch [(ngModel)]="recente" inputId="recente"></p-inputSwitch>
+        <label class="ml-2" aria-labelledby="recente" for="recente">{{
+          recente ? "Sim" : "Não"
+        }}</label>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <h3>Fotografias</h3>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <input
+        type="text"
+        pInputText
+        [(ngModel)]="textoDescritivo"
+        class="w-100"
+        placeholder="Texto que aparece como descritivo da imagem"
+      />
+    </div>
+  </div>
+  <div class="row"></div>
+  <div class="row mt-2">
+    <div class="col-6">
+      <!-- <p-fileUpload
+        icon="pi pi-paperclip"
+        mode="basic"
+        chooseLabel="Anexar Arquivo"
+        name="demo[]"
+        url="https://www.primefaces.org/cdn/api/upload.php"
+        accept="image/*"
+        [maxFileSize]="1000000"
+        [style]="{ width: '100%', height: '60px' }"
+        (onUpload)="onUpload($event)"
+      ></p-fileUpload> -->
+      <input
+        type="file"
+        style="display: none"
+        id="fileUpload"
+        (change)="onUploadFile($event)"
+      />
+      <p-button
+        label="Anexar Arquivo"
+        class="w-100 attachment-button"
+        [style]="{ width: '100%', height: '60px' }"
+        styleClass="custom-button"
+        icon="pi pi-paperclip"
+        (click)="openUpload()"
+      ></p-button>
+    </div>
+    <div class="col-6">
+      <p-button
+        [style]="{
+          width: '100%',
+          height: '60px',
+          'background-color': '#18a4de !important'
+        }"
+        label="Registrar Fotografia"
+        class="w-100 attachment-button"
+        icon="pi pi-camera"
+        (click)="openUpload()"
+      ></p-button>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-12">
+      <p-table [value]="anexos" styleClass="p-datatable-striped w-100">
+        <ng-template pTemplate="header">
+          <tr class="custom-thead">
+            <th width="50px"></th>
+            <th width="50px" style="padding-left: 5px; padding-right: 5px">
+              <img
+                src="assets/images/image-placeholder.svg"
+                class="w-100 h-100"
+              />
+            </th>
+            <th (click)="checkAnexoSelecionado()">DESCRITIVO</th>
+            <th style="text-align: center" width="80px">AÇÕES</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-anexo>
+          <tr>
+            <td>
+              <p-radioButton
+                name="pizza"
+                [value]="anexo"
+                [(ngModel)]="anexoSelecionado"
+                [inputId]="anexo.descricao"
+              ></p-radioButton>
+            </td>
+            <td
+              style="padding-left: 5px; padding-right: 5px"
+              (click)="onSelectAnexo(anexo)"
+            >
+              <img
+                src="assets/images/image-placeholder.svg"
+                style="height: 100% !important; width: 100% !important"
+              />
+            </td>
+            <td (click)="onSelectAnexo(anexo)">{{ anexo.descricao }}</td>
+            <td class="p-col-shrink actions-column">
+              <div class="button-container">
+                <button
+                  pButton
+                  icon="pi pi-times"
+                  style="font-size: 1.5rem; color: white"
+                  class="p-button-text custom-button"
+                  (click)="onDeleteAnexo(anexo)"
+                ></button>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-12">
+      <h3>Observações</h3>
+      <textarea
+        class="w-100"
+        rows="5"
+        cols="30"
+        pInputTextarea
+        [(ngModel)]="observacoes"
+      ></textarea>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-3">
+      <p-button styleClass="w-100 p-button-outlined" label="Voltar"></p-button>
+    </div>
+    <div class="col-6"></div>
+    <div class="col-3">
+      <p-button styleClass="w-100" label="Confirmar"></p-button>
+    </div>
+  </div>
+</div>

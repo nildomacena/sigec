@@ -1,19 +1,67 @@
-import { Component } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { Component, OnInit } from '@angular/core';
+import { MenuItem, PrimeNGConfig } from 'primeng/api';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   items: MenuItem[] = [];
 
   isSidebarExpanded = true;
   user = true;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private translate: TranslateService, private config: PrimeNGConfig) {
+    this.translate.setDefaultLang('pt');
+    this.translate.use('pt');
+    this.config.setTranslation({
+      accept: 'Aceitar',
+      reject: 'Cancelar',
+      dateFormat: 'dd/mm/yy',
+      today: 'Hoje',
+      clear: 'Limpar',
+      weekHeader: 'Sm',
+      weak: 'Fraco',
+      medium: 'Médio',
+      strong: 'Forte',
+      dayNames: [
+        'Domingo',
+        'Segunda',
+        'Terça',
+        'Quarta',
+        'Quinta',
+        'Sexta',
+        'Sabado',
+      ],
+      dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+      dayNamesShort: [
+        'Dom',
+        'Seg',
+        'Ter',
+        'Qua',
+        'Qui',
+        'Sex',
+        'Sab'
+      ],
+      monthNames: [
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+        'Julho',
+        'Agosto',
+        'Setembro',
+        'Outubro',
+        'Novembro',
+        'Dezembro',
+      ]
+      //translations
+    });
     this.items = [
       {
         label: 'Home',
@@ -32,6 +80,13 @@ export class AppComponent {
           },
         ],
       },];
+  }
+
+  ngOnInit(): void {
+    document.getElementById("menu-toggle")?.addEventListener("click", function () {
+      document.querySelector(".main-sidebar")?.classList.remove("menu-closed");
+      console.log('click');
+    });
   }
 
   toggleSidebar() {

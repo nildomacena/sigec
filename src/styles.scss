@@ -1,5 +1,23 @@
+@import "bootstrap";
 /* You can add global styles to this file, and also import other style files */
 $primary-color: #ff00bf;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 567px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1900px,
+);
+
+$container-max-widths: (
+  sm: 567px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1900px,
+);
 
 body {
   font-family: "Roboto", sans-serif;
@@ -79,4 +97,43 @@ body {
 
 .p-calendar {
   width: 100% !important;
+}
+
+.custom-label {
+  font-weight: 400 !important;
+  color: #00a5e4;
+  margin-bottom: 2px !important;
+}
+
+/* DIALOG */
+.p-dialog .p-dialog-header {
+  border-bottom: 0 none;
+  background: #00a5e4 !important;
+  color: #fff;
+  padding: 1.5rem;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-bottom: 2px solid #52ae32 !important;
+}
+
+.p-dialog-title {
+  text-align: center !important;
+  color: white !important;
+  width: 100% !important;
+}
+
+.p-dialog-header-icon {
+  color: white !important;
+}
+
+input {
+  border-color: #00a5e4 !important;
+}
+
+.attachment-button .p-button {
+  background-color: #18a4de !important;
+}
+
+.attachment-button .p-button:hover {
+  background-color: #2563eb !important;
 }

@@ -1,0 +1,99 @@
+<p-toast></p-toast>
+
+<div class="main-container">
+  <div class="row mt-2 mb-5">
+    <div class="col-3 justify-content-start">
+      <i
+        class="fa fa-building"
+        style="margin-right: 10px; color: #00a5e4; font-size: 20px"
+      ></i
+      ><span>Estruturas > <strong>Inspeções</strong></span>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <p-tabView>
+        <p-tabPanel header="INSPEÇÃO">
+          <div class="tab-content">
+            <div class="row mt-2 mb-2">
+              <div class="col">
+                <h3>Inspeção Operacional</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="form-group">
+                  <label for="nome-estrutura" class="custom-label"
+                    >Nome da Estrutura</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nome-estrutura"
+                    placeholder="Nome da Estrutura Cadastrada"
+                    aria-label="Código SIGEC"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <label for="camara" class="custom-label">Câmara</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="camara"
+                    aria-label="Código SAP"
+                  />
+                </div>
+              </div>
+              <div class="col"></div>
+              <div class="col-xxl-2 col-lg-4 col-6">
+                <button class="btn btn-success w-100" (click)="showDialog()" >
+                  <i class="fas fa-plus mr-2"></i>Nova Estrutura
+                </button>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+
+        <p-tabPanel header="OCORRÊNCIAS" styleClass="mb-5">
+          <div class="row mt-2 mb-2">
+            <div class="col">
+              <h3>Histórico de Ocorrências</h3>
+            </div>
+          </div>
+
+          <div class="row pt-3">
+            <div class="col-12">
+              <p class="table-title">Plantas</p>
+              <p-table
+                [value]="ocorrencias"
+                styleClass="p-datatable-striped w-100"
+              >
+                <ng-template pTemplate="header" style="height: 60px !important">
+                  <tr class="custom-thead">
+                    <th width="100px" >DATA</th>
+                    <th width="100px">HORA</th>
+                    <th width="33%">USUÁRIO</th>
+                    <th width="33%">PERFIL</th>
+                    <th width="33%">OCORRÊNCIA</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-ocorrencia>
+                  <tr>
+                    <td>{{ ocorrencia.data }}</td>
+                    <td>{{ ocorrencia.hora }}</td>
+                    <td>{{ ocorrencia.usuario }}</td>
+                    <td>{{ ocorrencia.perfil }}</td>
+                    <td>{{ ocorrencia.descricao }}</td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </div>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
+    <div style="height: 100px"></div>
+  </div>
+</div>
