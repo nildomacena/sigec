@@ -1,0 +1,218 @@
+<div class="main-container">
+  <form [formGroup]="form">
+    <div class="row">
+      <h3>Dados Gerais</h3>
+    </div>
+    <div class="row mt-2">
+      <div class="col-3">
+        <div class="form-group">
+          <label for="familia" class="custom-label">Família ou Grupo</label>
+          <input
+            type="text"
+            class="form-control"
+            id="familia"
+            placeholder="Ex: Parede A"
+            aria-label="Família Grupo"
+            formControlName="familia"
+          />
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group col">
+          <label for="select-unidade" class="custom-label"
+            >Tipo do Elemento</label
+          ><br />
+          <p-dropdown
+            class="w-100"
+            className="w-100"
+            id="tipoElemento"
+            [options]="elementos"
+            styleClass="w-100"
+            label="Tipo do Elemento"
+            formControlName="tipoElemento"
+            placeholder="Selecione"
+          ></p-dropdown>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label for="faces" class="custom-label">Quantidade de Faces</label>
+          <input
+            type="text"
+            class="form-control"
+            id="faces"
+            placeholder="Digite"
+            aria-label="Família Grupo"
+            formControlName="faces"
+          />
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label for="elementos" class="custom-label"
+            >Quantidade de elementos</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="elementos"
+            placeholder="Digite"
+            aria-label="Quantidade Elementos"
+            formControlName="elementos"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <h3>Dimensões</h3>
+    </div>
+    <div class="row mt-2">
+      <div class="col-3">
+        <div class="form-group">
+          <label for="maiorDimensão" class="custom-label">Maior Dimensão</label>
+          <input
+            type="text"
+            class="form-control"
+            id="maiorDimensão"
+            placeholder="Ex: 000,00 m"
+            aria-label="Maior Dimensão"
+            formControlName="maiorDimensao"
+          />
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label for="menorDimensão" class="custom-label">Menor Dimensão</label>
+          <input
+            type="text"
+            class="form-control"
+            id="menorDimensão"
+            placeholder="Ex: 000,00 m"
+            aria-label="Menor Dimensão"
+            formControlName="menorDimensao"
+          />
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label for="comprimento" class="custom-label">Comprimento</label>
+          <input
+            type="text"
+            class="form-control"
+            id="comprimento"
+            placeholder="Ex: 000,00 m"
+            aria-label="Comprimento"
+            formControlName="comprimento"
+          />
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label for="somaLados" class="custom-label">Soma dos Lados</label>
+          <input
+            type="text"
+            class="form-control"
+            id="somaLados"
+            placeholder="Ex: 000,00 m"
+            aria-label="Soma dos Lados"
+            formControlName="somaLados"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-3">
+        <div class="form-group">
+          <label for="areaSuperficieUnitaria" class="custom-label"
+            >Área Superfície (Unitária)</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="areaSuperficieUnitaria"
+            placeholder="Ex: 000,00 m²"
+            aria-label="Área Superfície (Unitária)"
+            formControlName="areaSuperficieUnitaria"
+          />
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label for="areaSuperficieGeral" class="custom-label"
+            >Área Superfície (Geral)</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="areaSuperficieGeral"
+            placeholder="Ex: 000,00 m²"
+            aria-label="Área Superfície (Geral)"
+            formControlName="areaSuperficieGeral"
+          />
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label for="areaAdicional" class="custom-label">Área Adicional</label>
+          <input
+            type="text"
+            class="form-control"
+            id="areaAdicional"
+            placeholder="Ex: 000,00 m²"
+            aria-label="Área Adicional"
+            formControlName="areaAdicional"
+          />
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label for="areaTotal" class="custom-label">Área Total</label>
+          <input
+            type="text"
+            class="form-control"
+            id="areaTotal"
+            placeholder="Ex: 000,00 m²"
+            aria-label="Área Total"
+            formControlName="areaTotal"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <h3>Observações</h3>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12">
+        <div class="form-group">
+          <textarea
+            class="form-control"
+            id="observacoes"
+            rows="3"
+            placeholder="Digite aqui"
+            formControlName="observacoes"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <!-- Botoes de rodapé -->
+    <div class="row mt-2">
+      <div class="col-xxl-2 col-lg-4 col-6">
+        <p-button
+          styleClass="w-100 p-button-outlined"
+          label="Voltar"
+          (click)="console()"
+        ></p-button>
+      </div>
+      <div class="col-xxl-8 col-lg-4 col-6"></div>
+      <div class="col-xxl-2 col-lg-4 col-6">
+        <p-button
+          styleClass="w-100"
+          label="Confirmar"
+          [disabled]="form.invalid"
+          (click)="salvarElemento()"
+        ></p-button>
+      </div>
+    </div>
+  </form>
+</div>

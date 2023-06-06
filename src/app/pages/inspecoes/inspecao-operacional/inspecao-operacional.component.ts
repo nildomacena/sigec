@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { NovoRegistroDialogComponent } from 'src/app/components/novo-registro-dialog/novo-registro-dialog.component';
+import { NovoRegistroDialogComponent } from 'src/app/components/dialogs/novo-registro-dialog/novo-registro-dialog.component';
 import { Utils } from 'src/app/shared/utils';
 
 @Component({

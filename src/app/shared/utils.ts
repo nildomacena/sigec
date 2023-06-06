@@ -1,5 +1,6 @@
 import { IMaterial } from "../interfaces/material";
 import { ISituacao } from "../interfaces/situacao";
+import { ITipoAnexo } from "../interfaces/tipo-anexo";
 import { ITipoEstrutura } from "../interfaces/tipo-estrutura";
 import { IUF } from "../interfaces/uf";
 
@@ -72,4 +73,10 @@ export class Utils {
     { id: 3, nome: 'Apoiada' },
     { id: 4, nome: 'Elevada' },
   ]
+
+  static tiposAnexo: ITipoAnexo[] = [
+    { id: 1, nome: 'Fotografias' },
+    { id: 2, nome: 'Plantas' },
+    { id: 3, nome: 'Documentos' },
+  ];
 }

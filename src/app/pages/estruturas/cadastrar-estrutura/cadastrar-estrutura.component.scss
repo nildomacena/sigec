@@ -1,20 +1,34 @@
-.custom-thead th{
+.custom-thead th {
   font-size: 12px !important;
   color: #00a5e5;
 }
 
-.highlight{
+.highlight {
   background-color: #00a5e5 !important;
   color: white !important;
   text-align: center !important;
 }
 
-.no-element{
+.no-element {
   height: 50vh;
   width: 100%;
   padding-top: 10%;
   display: flex;
   justify-content: center;
   text-align: center;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red !important;
+}
+
+select.ng-invalid.ng-touched {
+  border: 1px solid red !important;
+}
+
+tbody,
+th,
+thead {
+  height: 60px !important;
 }
 

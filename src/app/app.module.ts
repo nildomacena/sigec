@@ -14,7 +14,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { CadastrarEstruturaComponent } from './pages/estruturas/cadastrar-estrutura/cadastrar-estrutura.component';
 import { DetalharEstruturaComponent } from './pages/estruturas/detalhar-estrutura/detalhar-estrutura.component';
 import { ListarEstruturasComponent } from './pages/estruturas/listar-estruturas/listar-estruturas.component';
-import { NovoRegistroDialogComponent } from './components/novo-registro-dialog/novo-registro-dialog.component';
+import { NovoRegistroDialogComponent } from './components/dialogs/novo-registro-dialog/novo-registro-dialog.component';
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
 import { TabViewModule } from 'primeng/tabview';
@@ -29,11 +29,14 @@ import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { FileUploadModule } from 'primeng/fileupload';
+import { IncluirAnexoDialogComponent } from './components/dialogs/incluir-anexo-dialog/incluir-anexo-dialog.component';
+import { IncluirElementDialogComponent } from './components/dialogs/incluir-element-dialog/incluir-element-dialog.component';
+import { ListarInspecoesComponent } from './pages/inspecoes/listar-inspecoes/listar-inspecoes.component';
 
 
 @NgModule({
@@ -46,10 +49,14 @@ import { FileUploadModule } from 'primeng/fileupload';
     DetalharEstruturaComponent,
     ListarEstruturasComponent,
     InspecaoOperacionalComponent,
-    NovoRegistroDialogComponent
+    NovoRegistroDialogComponent,
+    IncluirAnexoDialogComponent,
+    IncluirElementDialogComponent,
+    ListarInspecoesComponent
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     ToolbarModule,

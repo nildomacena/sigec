@@ -82,11 +82,35 @@
                 <th style="width: 150px">UNIDADE</th>
                 <th>MUNICÍPIO</th>
                 <th style="width: 5%">ESTADO</th>
-                <th
+                <!-- <th
                   class="actions"
                   style="color: white !important; width: 150px !important"
                 >
                   AÇÕES
+                </th> -->
+                <th
+                  width="160px"
+                  class="highlight"
+                  style="
+                    padding-top: 0 !important;
+                    padding-bottom: 0 !important;
+                    position: relative !important;
+                  "
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 10;
+                      left: 0;
+                      right: 0;
+                      color: white;
+                    "
+                  >
+                    AÇÕES
+                  </div>
+                  <p style="margin-top: 20px; margin-bottom: 0; color: white">
+                    Detalhar - Inspecionar
+                  </p>
                 </th>
               </tr>
             </ng-template>
@@ -97,8 +121,11 @@
                 <td>Centro</td>
                 <td>{{ estrutura.municipio }}</td>
                 <td>{{ estrutura.uf }}</td>
-                <td class="p-col-shrink actions-column">
-                  <div class="button-container">
+                <td style="background-color: #cef0ff">
+                  <div
+                    class="button-container"
+                    style="display: flex; justify-content: space-between"
+                  >
                     <button
                       pButton
                       icon="pi pi-eye"

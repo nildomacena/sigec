@@ -1,0 +1,260 @@
+<div class="main-container">
+  <div class="row mt-2">
+    <div class="col-3 justify-content-start">
+      <i
+        class="fa fa-building"
+        style="margin-right: 10px; color: #00a5e4; font-size: 20px"
+      ></i
+      ><span>Estrutura > <strong>Inspeções</strong></span>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-12 card">
+      <div class="row">
+        <div class="col-12">
+          <p class="card-title">Estrutura</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-3">
+          <label class="custom-label" for="termo-pesquisa">Código SIGEC</label>
+          <input
+            type="email"
+            class="form-control"
+            id="termo-pesquisa"
+            aria-describedby="termo"
+            disabled
+            placeholder="0123456789"
+          />
+        </div>
+        <div class="form-group col-4">
+          <label class="custom-label" for="termo-pesquisa"
+            >Nome da Estrutura</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="termo-pesquisa"
+            aria-describedby="termo"
+            disabled
+            placeholder="Nome da Estrutura Cadastrada"
+          />
+        </div>
+        <div class="form-group col-2">
+          <label class="custom-label" for="termo-pesquisa">Unidade</label>
+          <input
+            type="email"
+            class="form-control"
+            id="termo-pesquisa"
+            aria-describedby="termo"
+            disabled
+            placeholder="Centro"
+          />
+        </div>
+        <div class="form-group col-1">
+          <label class="custom-label" for="termo-pesquisa">UF</label>
+          <input
+            type="email"
+            class="form-control"
+            id="termo-pesquisa"
+            aria-describedby="termo"
+            disabled
+            placeholder="UF"
+          />
+        </div>
+
+        <div class="col-2 d-flex" style="padding-top: 30px">
+          <button
+            id="button"
+            class="btn btn-success w-100"
+            [routerLink]="['/cadastrar-estrutura']"
+          >
+            <i class="fas fa-plus mr-2"></i>Nova Estrutura
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-12 card">
+      <div class="row">
+        <div class="col-12">
+          <p class="card-title">Histórico de Inspeções</p>
+        </div>
+      </div>
+      <form [formGroup]="form">
+        <div class="row">
+          <div class="form-group col-3">
+            <label for="tipoInspecao" class="custom-label"
+              >Tipo de Inspeção</label
+            >
+            <p-dropdown
+              class="w-100"
+              className="w-100"
+              id="tipoInspecao"
+              [options]="tiposInspecao"
+              styleClass="w-100"
+              label="Tipo de Inspeção"
+              formControlName="tipoInspecao"
+              placeholder="Selecione"
+            ></p-dropdown>
+          </div>
+          <div class="form-group col-2">
+            <label for="camara" class="custom-label">Câmara</label>
+            <p-dropdown
+              class="w-100"
+              className="w-100"
+              id="camara"
+              [options]="camaras"
+              styleClass="w-100"
+              label="Tipo de Inspeção"
+              formControlName="camara"
+              placeholder="Selecione"
+            ></p-dropdown>
+          </div>
+          <div class="col-lg-2">
+            <label class="custom-label" for="data_inicial">Data Inicial</label>
+            <p-calendar
+              id="data_inicial"
+              placeholder="DD/MM/AAAA"
+              formControlName="dataInicio"
+            ></p-calendar>
+          </div>
+          <div class="col-lg-2">
+            <label class="custom-label" for="data_fim">Data Final</label>
+            <p-calendar
+              id="data_fim"
+              placeholder="DD/MM/AAAA"
+              formControlName="dataFim"
+            ></p-calendar>
+          </div>
+          <div class="col" style="padding-top: 25px">
+            <div class="row">
+              <div class="col-6">
+                <p-button
+                  (click)="limparFiltros()"
+                  styleClass="w-100 p-button-outlined"
+                  label="Limpar Filtros"
+                ></p-button>
+              </div>
+              <div class="col-6">
+                <p-button
+                  styleClass="w-100"
+                  label="Filtrar"
+                  [disabled]="form.invalid"
+                ></p-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <p-table [value]="inpecoes" styleClass="p-datatable-striped w-100">
+          <ng-template pTemplate="header" style="height: 60px !important">
+            <tr class="custom-thead">
+              <th width="120px">STATUS</th>
+              <th>DATA</th>
+              <th>TIPO DE INSPEÇÃO</th>
+              <th>INSPETOR</th>
+              <th>CÂMARA</th>
+              <th>CLASSIFICAÇÃO</th>
+              <th
+                width="280px"
+                class="highlight"
+                style="
+                  padding-top: 0 !important;
+                  padding-bottom: 0 !important;
+                  position: relative !important;
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    top: 10px;
+                    left: 0;
+                    right: 0;
+                    color: white;
+                  "
+                >
+                  AÇÕES
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 35px;
+                    margin-bottom: 0;
+                    color: white;
+                    font-size: small;
+                    font-weight: 300;
+                  "
+                >
+                  <div class="button-wrapper" style="margin-bottom: 10px">
+                    USUÁRIOS
+                  </div>
+                  <div class="button-wrapper" style="margin-bottom: 10px">
+                    DETALHAR
+                  </div>
+                  <div class="button-wrapper" style="margin-bottom: 10px">
+                    REABRIR
+                  </div>
+                  <div class="button-wrapper" style="margin-bottom: 10px">
+                    BAIXAR
+                  </div>
+                </div>
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-inspecao>
+            <tr>
+              <td>{{ inspecao }}</td>
+              <td>{{ inspecao }}</td>
+              <td>{{ inspecao }}</td>
+              <td>{{ inspecao }}</td>
+              <td>{{ inspecao }}</td>
+              <td>{{ inspecao }}</td>
+              <td
+                class="p-col-shrink actions-column"
+                style="background-color: #cef0ff"
+              >
+                <div
+                  class="button-container"
+                  style="display: flex; justify-content: space-between"
+                >
+                  <div class="button-wrapper">
+                    <button
+                      pButton
+                      icon="pi pi-eye"
+                      class="p-button-text custom-button"
+                    ></button>
+                  </div>
+                  <div class="button-wrapper">
+                    <button
+                      pButton
+                      icon="pi pi-building"
+                      class="p-button-text custom-button"
+                    ></button>
+                  </div>
+                  <div class="button-wrapper">
+                    <button
+                      pButton
+                      icon="pi pi-building"
+                      class="p-button-text custom-button"
+                    ></button>
+                  </div>
+                  <div class="button-wrapper">
+                    <button
+                      pButton
+                      icon="pi pi-building"
+                      class="p-button-text custom-button"
+                    ></button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</div>

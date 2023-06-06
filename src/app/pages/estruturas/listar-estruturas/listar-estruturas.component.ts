@@ -23,6 +23,6 @@ export class ListarEstruturasComponent {
   }
 
   inspecionarEstrutura(estrutura: IEstrutura) {
-    this.router.navigate(['/detalhar-estrutura', estrutura.id]);
+    this.router.navigate(['/listar-inspecoes/', estrutura.id]);
   }
 }

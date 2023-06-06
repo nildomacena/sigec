@@ -1,0 +1,90 @@
+<form [formGroup]="form" class="main-container">
+  <div class="row">
+    <div class="form-group col">
+      <label for="select-tipo-anexo" class="custom-label">Tipo de Anexo</label>
+      <select
+        class="form-control"
+        id="select-tipo-anexo"
+        formControlName="tipoAnexoId"
+        required
+      >
+        <option [value]="null" selected>Selecione</option>
+        <option [value]="tipo.id" *ngFor="let tipo of tiposAnexo">{{ tipo.nome }}</option>
+      </select>
+      <div
+        *ngIf="
+          form.controls['tipoAnexoId'].invalid &&
+          form.controls['tipoAnexoId'].touched
+        "
+        style="color: red"
+      >
+        *O campo obrigatório.
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="descricao" class="custom-label">Descrição</label>
+        <input
+          type="text"
+          class="form-control"
+          id="descricao"
+          aria-label="Descrição"
+          formControlName="descricao"
+          required
+        />
+        <div
+          *ngIf="
+            form.controls['descricao'].invalid &&
+            form.controls['descricao'].touched
+          "
+          style="color: red"
+        >
+          *O campo obrigatório.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <input
+        type="file"
+        style="display: none"
+        id="fileUpload"
+        (change)="onUploadFile($event)"
+      />
+      <p-button
+        [label]="
+          form.controls['arquivo'].value != null
+            ? form.controls['arquivo'].value.name
+            : 'Anexar Arquivo'
+        "
+        class="w-100 attachment-button"
+        [style]="{ width: '100%', height: '60px' }"
+        styleClass="custom-button"
+        icon="pi pi-paperclip"
+        (click)="openUpload()"
+      ></p-button>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-2"></div>
+    <div class="col-4">
+      <p-button
+        styleClass="w-100 p-button-outlined"
+        label="Voltar"
+        (click)="console()"
+      ></p-button>
+    </div>
+    <div class="col-4">
+      <p-button
+        styleClass="w-100"
+        label="Incluir"
+        [disabled]="form.invalid"
+        (click)="salvarAnexo()"
+      ></p-button>
+    </div>
+    <div class="col-2"></div>
+  </div>
+</form>

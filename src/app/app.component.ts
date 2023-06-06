@@ -94,7 +94,7 @@ export class AppComponent implements OnInit {
   }
 
   isLoginPage(): boolean {
-    return this.router.url.indexOf('login') > 0;
+    return this.router.url.indexOf('login') > 0 || this.router.url === '/';
   }
 
   goToEstruturas() {
