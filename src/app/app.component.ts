@@ -105,6 +105,11 @@ export class AppComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
+  goToLocalidades() {
+    console.log('goToLocalidades');
+    this.router.navigate(['/localidades']);
+  }
+
   logout() {
     console.log('logout');
     this.router.navigate(['/login']);

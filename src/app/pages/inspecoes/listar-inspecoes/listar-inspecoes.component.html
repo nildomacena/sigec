@@ -64,12 +64,30 @@
         </div>
 
         <div class="col-2 d-flex" style="padding-top: 30px">
+          <p-overlayPanel #op>
+            <div class="btn-overlay">
+              <button (click)="abrirNovaInspecaoDialog(true)">
+                Com Câmara
+              </button>
+            </div>
+            <div class="btn-overlay">
+              <button (click)="abrirNovaInspecaoDialog(false)">
+                Sem Câmara
+              </button>
+            </div>
+            <div class="btn-overlay">
+              <button (click)="irParaInspecaoOperacional()">
+                Perfil Operador
+              </button>
+            </div>
+          </p-overlayPanel>
+
           <button
             id="button"
             class="btn btn-success w-100"
-            [routerLink]="['/cadastrar-estrutura']"
+            (click)="op.toggle($event)"
           >
-            <i class="fas fa-plus mr-2"></i>Nova Estrutura
+            <i class="fas fa-plus mr-2"></i>Nova Inspeção
           </button>
         </div>
       </div>
@@ -149,7 +167,7 @@
         </div>
       </form>
       <div class="row">
-        <p-table [value]="inpecoes" styleClass="p-datatable-striped w-100">
+        <p-table [value]="inspecoes" styleClass="p-datatable-striped w-100">
           <ng-template pTemplate="header" style="height: 60px !important">
             <tr class="custom-thead">
               <th width="120px">STATUS</th>
@@ -207,12 +225,19 @@
           </ng-template>
           <ng-template pTemplate="body" let-inspecao>
             <tr>
-              <td>{{ inspecao }}</td>
-              <td>{{ inspecao }}</td>
-              <td>{{ inspecao }}</td>
-              <td>{{ inspecao }}</td>
-              <td>{{ inspecao }}</td>
-              <td>{{ inspecao }}</td>
+              <td
+                class="status"
+                [ngClass]="
+                  inspecao.status == 'Concluído' ? 'concluido' : 'pendente'
+                "
+              >
+                {{ inspecao.status }}
+              </td>
+              <td>{{ inspecao.data }}</td>
+              <td>{{ inspecao.tipo }}</td>
+              <td>{{ inspecao.inspetor }}</td>
+              <td>{{ inspecao.camara }}</td>
+              <td>{{ inspecao.classificacao }}</td>
               <td
                 class="p-col-shrink actions-column"
                 style="background-color: #cef0ff"
@@ -224,28 +249,32 @@
                   <div class="button-wrapper">
                     <button
                       pButton
+                      class="p-button-text custom-button"
+                      (click)="abrirUsuariosDialog()"
+                    >
+                      <fa-icon [icon]="faUsers"></fa-icon>
+                    </button>
+                  </div>
+                  <div class="button-wrapper">
+                    <button
+                      pButton
                       icon="pi pi-eye"
                       class="p-button-text custom-button"
+                      (click)="abrirUsuariosDialog()"
                     ></button>
                   </div>
                   <div class="button-wrapper">
                     <button
                       pButton
-                      icon="pi pi-building"
+                      icon="pi pi-folder-open"
                       class="p-button-text custom-button"
+                      (click)="reabrirInspecao(inspecao)"
                     ></button>
                   </div>
                   <div class="button-wrapper">
                     <button
                       pButton
-                      icon="pi pi-building"
-                      class="p-button-text custom-button"
-                    ></button>
-                  </div>
-                  <div class="button-wrapper">
-                    <button
-                      pButton
-                      icon="pi pi-building"
+                      icon="pi pi-download"
                       class="p-button-text custom-button"
                     ></button>
                   </div>

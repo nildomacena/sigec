@@ -1,0 +1,78 @@
+<div class="main-container">
+  <div class="row">
+    <div class="form-group col-6">
+      <label for="select-usuario" class="custom-label">Usuário</label><br />
+      <p-autoComplete
+        width="100%"
+        id="select-usuario"
+        placeholder="Selecione"
+        [(ngModel)]="usuarioSelecionado"
+        [suggestions]="suggestions"
+        (completeMethod)="search($event)"
+        [style]="{ width: '100%' }"
+        [inputStyle]="{ width: '100%' }"
+      ></p-autoComplete>
+    </div>
+    <div class="col-3">
+      <div class="form-group">
+        <label for="select-perfil" class="custom-label">Perfil</label><br />
+        <p-dropdown
+          id="select-perfil"
+          class="w-100"
+          className="w-100"
+          id="tipoElemento"
+          [options]="perfis"
+          [(ngModel)]="perfilSelecionado"
+          styleClass="w-100"
+          label="Selecione"
+          placeholder="Selecione"
+        ></p-dropdown>
+      </div>
+    </div>
+    <div class="col-3 pt-4">
+      <button
+        type="button"
+        class="btn btn-success w-100"
+        pButton
+        [disabled]="!usuarioSelecionado || !perfilSelecionado"
+        (click)="cadastrarUsuario()"
+      >
+        Cadastrar
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <h5>
+      <strong>Usuários Cadastrados</strong>
+    </h5>
+  </div>
+  <div class="row">
+    <p-table
+      [value]="usuariosCadastrados"
+      styleClass="p-datatable-striped w-100"
+    >
+      <ng-template pTemplate="header" style="height: 60px !important">
+        <tr class="custom-thead">
+          <th>USUÁRIO</th>
+          <th>PERFIL</th>
+          <th width="100px">AÇÕES</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-usuario>
+        <tr>
+          <td>{{ usuario.nome }}</td>
+          <td>{{ usuario.perfil }}</td>
+          <td>
+            <p-button
+              icon="pi pi-times"
+              styleClass="p-button-primary"
+              (click)="excluirUsuarioCadastrado(usuario)"
+            ></p-button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

@@ -37,7 +37,14 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { IncluirAnexoDialogComponent } from './components/dialogs/incluir-anexo-dialog/incluir-anexo-dialog.component';
 import { IncluirElementDialogComponent } from './components/dialogs/incluir-element-dialog/incluir-element-dialog.component';
 import { ListarInspecoesComponent } from './pages/inspecoes/listar-inspecoes/listar-inspecoes.component';
-
+import { NovaInspecaoDialogComponent } from './components/dialogs/nova-inspecao-dialog/nova-inspecao-dialog.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { IncluirUsuarioDialogComponent } from './components/dialogs/incluir-usuario-dialog/incluir-usuario-dialog.component';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmDialogComponent } from './components/dialogs/confirm-dialog/confirm-dialog.component';
+import { LocalidadesComponent } from './pages/localidades/localidades.component';
+import { LocalidadeDialogComponent } from './components/dialogs/localidade-dialog/localidade-dialog.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +59,12 @@ import { ListarInspecoesComponent } from './pages/inspecoes/listar-inspecoes/lis
     NovoRegistroDialogComponent,
     IncluirAnexoDialogComponent,
     IncluirElementDialogComponent,
-    ListarInspecoesComponent
+    ListarInspecoesComponent,
+    NovaInspecaoDialogComponent,
+    IncluirUsuarioDialogComponent,
+    ConfirmDialogComponent,
+    LocalidadesComponent,
+    LocalidadeDialogComponent
   ],
   imports: [
     FormsModule,
@@ -79,7 +91,10 @@ import { ListarInspecoesComponent } from './pages/inspecoes/listar-inspecoes/lis
     RadioButtonModule,
     InputSwitchModule,
     OverlayPanelModule,
-    FileUploadModule
+    FileUploadModule,
+    FontAwesomeModule,
+    AutoCompleteModule,
+    ConfirmDialogModule,
   ],
   providers: [
     TranslateService,

@@ -1,0 +1,92 @@
+<div class="mt-5 row">
+  <h5>Indique um Aprovador</h5>
+</div>
+<div class="row">
+  <p-dropdown
+    class="w-100"
+    className="w-100"
+    id="tipoElemento"
+    [options]="aprovadores"
+    styleClass="w-100"
+    label="Tipo do Elemento"
+    [(ngModel)]="aprovadorSelecionado"
+    placeholder="Selecione"
+  ></p-dropdown>
+</div>
+<ng-container *ngIf="comCamara">
+  <div class="mt-5 row">
+    <h5>Indique uma Câmara</h5>
+  </div>
+  <div class="row">
+    <p-dropdown
+      class="w-100"
+      className="w-100"
+      id="tipoElemento"
+      [options]="camaras"
+      styleClass="w-100"
+      label="Tipo do Elemento"
+      [(ngModel)]="camaraSelecionada"
+      placeholder="Selecione"
+    ></p-dropdown>
+  </div>
+</ng-container>
+<div class="mt-5 row">
+  <h5>Selecione o Tipo de Inspeção</h5>
+</div>
+<div class="row">
+  <div class="flex flex-wrap gap-3">
+    <div class="flex align-items-center">
+      <p-radioButton
+        name="tipoInspecao"
+        value="Plano de Manutenção de Estruturas Civis"
+        [(ngModel)]="tipoInspecaoSelecionado"
+        inputId="tipoInspecao1"
+      ></p-radioButton>
+      <label for="tipoInspecao1" class="ml-2 radio"
+        >Plano de Manutenção de Estruturas Civis</label
+      >
+    </div>
+
+    <div class="align-items-center">
+      <p-radioButton
+        name="tipoInspecao"
+        value="Plano de Mitigação de Riscos em Estruturas de Baixa Liberação"
+        [(ngModel)]="tipoInspecaoSelecionado"
+        inputId="tipoInspecao2"
+      ></p-radioButton>
+      <label for="tipoInspecao2" class="ml-2 radio"
+        >Plano de Mitigação de Riscos em Estruturas de Baixa Liberação</label
+      >
+    </div>
+
+    <div class="flex align-items-center">
+      <p-radioButton
+        name="tipoInspecao"
+        value="Inspeção sem Plano"
+        [(ngModel)]="tipoInspecaoSelecionado"
+        inputId="tipoInspecao3"
+      ></p-radioButton>
+      <label for="tipoInspecao3" class="ml-2 radio">Inspeção sem Plano</label>
+    </div>
+
+    <div class="flex align-items-center">
+      <p-radioButton
+        name="tipoInspecao"
+        value="Inspeção Operacional"
+        [(ngModel)]="tipoInspecaoSelecionado"
+        inputId="tipoInspecao4"
+      ></p-radioButton>
+      <label for="tipoInspecao4" class="ml-2 radio">Inspeção Operacional</label>
+    </div>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col-lg-4 col-5">
+    <p-button styleClass="w-100 p-button-outlined" label="Voltar"></p-button>
+  </div>
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4 col-5 offset-col-2">
+    <p-button styleClass="w-100" label="Incluir"></p-button>
+  </div>
+  <div style="height: 50px"></div>
+</div>

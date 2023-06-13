@@ -271,7 +271,7 @@
                     id="select-tipo"
                     formControlName="tipoEstrutura"
                   >
-                    <option *ngFor="let tipo of tiposEstruturas" [value]="tipo">
+                    <option *ngFor="let tipo of tiposEstruturas" [value]="tipo.id">
                       {{ tipo.nome }}
                     </option>
                   </select>

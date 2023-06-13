@@ -24,3 +24,29 @@
   text-align: center;
   font-size: x-small;
 }
+
+.p-overlaypanel-content {
+  padding: 5px !important;
+}
+
+.btn-overlay {
+  width: 100%;
+  margin: 5px 5px;
+}
+
+.btn-overlay button {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.status {
+  font-weight: bold !important;
+}
+
+.concluido {
+  color: green;
+}
+
+.pendente {
+  color: red;
+}

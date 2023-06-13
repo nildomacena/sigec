@@ -15,6 +15,11 @@ export class InspecaoOperacionalComponent {
   situacoes = Utils.situacoes;
   tiposEstruturas = Utils.tiposEstruturas;
   ref?: DynamicDialogRef;
+  registros = [
+    'Registro 1',
+    'Registro 2',
+    'Registro 3',
+  ];
 
   ocorrencias = [
     { data: '01/01/2021', hora: '10:00', usuario: 'João', perfil: 'Inspetor', descricao: 'Ocorrência 1' },
@@ -49,6 +54,6 @@ export class InspecaoOperacionalComponent {
       }
       console.log(product)
     });
-
   }
+
 }

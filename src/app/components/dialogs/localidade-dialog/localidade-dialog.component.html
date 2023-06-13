@@ -1,0 +1,100 @@
+<div class="main-container">
+  <form [formGroup]="form">
+    <div class="row">
+      <h3>Dados Gerais</h3>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="endereco" class="custom-label">Endereço *</label>
+          <input
+            type="text"
+            class="form-control"
+            id="endereco"
+            placeholder="Digite o endereço ou descritivo de uma Localidade"
+            aria-label="Endereço"
+            formControlName="endereco"
+          />
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label for="cep" class="custom-label">CEP</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cep"
+            placeholder="Ex: 99.999-999"
+            aria-label="CEP"
+            formControlName="cep"
+          />
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label for="numero" class="custom-label">Número</label>
+          <input
+            type="text"
+            class="form-control"
+            id="numero"
+            placeholder="Ex: 99.999"
+            aria-label="Número"
+            formControlName="numero"
+          />
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="form-group col">
+          <label for="select-uf" class="custom-label">Estado</label><br />
+          <p-dropdown
+            class="w-100"
+            className="w-100"
+            id="uf"
+            [options]="ufs"
+            styleClass="w-100"
+            label="Estado"
+            formControlName="uf"
+            placeholder="Selecione"
+            optionLabel="sigla"
+          ></p-dropdown>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group col">
+          <label for="select-municipio" class="custom-label">Município</label
+          ><br />
+          <p-dropdown
+            class="w-100"
+            className="w-100"
+            id="select-municipio"
+            [options]="municipios"
+            styleClass="w-100"
+            label="Município"
+            formControlName="municipio"
+            placeholder="Selecione"
+          ></p-dropdown>
+        </div>
+      </div>
+    </div>
+    <div style="height: 100px"></div>
+    <!-- Botoes de rodapé -->
+    <div class="row mt-2">
+      <div class="col-xxl-2 col-lg-4 col-6">
+        <p-button
+          styleClass="w-100 p-button-outlined"
+          label="Voltar"
+          (click)="console()"
+        ></p-button>
+      </div>
+      <div class="col-xxl-8 col-lg-4 col-6"></div>
+      <div class="col-xxl-2 col-lg-4 col-6">
+        <p-button
+          styleClass="w-100"
+          label="Cadastrar"
+          [disabled]="form.invalid"
+          (click)="salvarElemento()"
+        ></p-button>
+      </div>
+    </div>
+  </form>
+</div>

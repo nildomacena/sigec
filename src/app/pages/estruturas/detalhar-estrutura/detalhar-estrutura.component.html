@@ -12,292 +12,492 @@
     <div class="col">
       <p-tabView>
         <p-tabPanel header="DADOS GERAIS">
-          <div class="tab-content">
-            <div class="row">
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <label for="codigo-sigec" class="custom-label"
-                    >Código SIGEC</label
+          <form [formGroup]="formFirstStep">
+            <div class="tab-content">
+              <div class="row">
+                <div class="col-lg-2">
+                  <div class="form-group">
+                    <label for="codigo-sigec" class="custom-label"
+                      >Código SIGEC</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="codigo-sigec"
+                      aria-label="Código SIGEC"
+                      [disabled]="!editar"
+                      formControlName="codigoSigec"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-2">
+                  <div class="form-group">
+                    <label for="codigo-sap" class="custom-label"
+                      >Código SAP</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="codigo-sap"
+                      aria-label="Código SAP"
+                      [disabled]="!editar"
+                      formControlName="codigoSap"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="form-group">
+                    <label for="nome-estrutura" class="custom-label"
+                      >Nome da Estrutura</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="nome-estrutura"
+                      aria-label="Nome da Estrutura"
+                      [disabled]="!editar"
+                      formControlName="nomeEstrutura"
+                    />
+                  </div>
+                </div>
+                <div class="form-group col-2">
+                  <label for="select-unidade" class="custom-label"
+                    >Unidade</label
                   >
-                  <input
-                    type="text"
+                  <select
                     class="form-control"
-                    id="codigo-sigec"
-                    aria-label="Código SIGEC"
-                  />
-                </div>
-              </div>
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <label for="codigo-sap" class="custom-label"
-                    >Código SAP</label
+                    id="select-unidade"
+                    [disabled]="!editar"
+                    formControlName="unidade"
                   >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="codigo-sap"
-                    aria-label="Código SAP"
-                  />
-                </div>
-              </div>
-              <div class="col-lg-3">
-                <div class="form-group">
-                  <label for="nome-estrutura" class="custom-label"
-                    >Nome da Estrutura</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="nome-estrutura"
-                    aria-label="Nome da Estrutura"
-                  />
-                </div>
-              </div>
-              <div class="form-group col-2">
-                <label for="select-unidade" class="custom-label">Unidade</label>
-                <select class="form-control" id="select-unidade">
-                  <option>Centro</option>
-                  <option>Zona Leste</option>
-                  <option>Zona Sul</option>
-                  <option>Zona Norte</option>
-                </select>
-              </div>
-            </div>
-            <div class="row mt-2 mb-2">
-              <div class="col">
-                <h3>Local</h3>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <label for="cep" class="custom-label">CEP</label>
-                  <input
-                    mask="00000-000"
-                    type="text"
-                    class="form-control"
-                    id="cep"
-                    aria-label="CEP"
-                  />
-                </div>
-              </div>
-              <div class="col-lg-5">
-                <div class="form-group">
-                  <label for="cep" class="custom-label">Endereço*</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="cep"
-                    aria-label="CEP"
-                  />
-                </div>
-              </div>
-              <div class="col-lg-1">
-                <div class="form-group">
-                  <label for="cep" class="custom-label">Número</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="cep"
-                    aria-label="CEP"
-                  />
-                </div>
-              </div>
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <label class="custom-label" for="uf">Estado</label>
-                  <select class="form-control" id="uf">
-                    <option [value]="null" selected>Selecione a UF</option>
-                    <option *ngFor="let uf of ufs" [value]="uf.sigla">
-                      {{ uf.nome }}
-                    </option>
+                    <option>Centro</option>
+                    <option>Zona Leste</option>
+                    <option>Zona Sul</option>
+                    <option>Zona Norte</option>
                   </select>
                 </div>
               </div>
-              <div class="col-2">
-                <div class="form-group">
-                  <label class="custom-label" for="uf">Município*</label>
-                  <select class="form-control" id="uf">
-                    <option [value]="null" selected>
-                      Selecione o Município
-                    </option>
-                    <option *ngFor="let uf of ufs" [value]="uf.sigla">
-                      {{ uf.nome }}
-                    </option>
-                  </select>
+              <div class="row mt-2 mb-2">
+                <div class="col">
+                  <h3>Local</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-2">
+                  <div class="form-group">
+                    <label for="cep" class="custom-label">CEP</label>
+                    <input
+                      mask="00000-000"
+                      type="text"
+                      class="form-control"
+                      id="cep"
+                      aria-label="CEP"
+                      [disabled]="!editar"
+                      formControlName="cep"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-5">
+                  <div class="form-group">
+                    <label for="cep" class="custom-label">Endereço*</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="cep"
+                      aria-label="CEP"
+                      [disabled]="!editar"
+                      formControlName="endereco"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-1">
+                  <div class="form-group">
+                    <label for="cep" class="custom-label">Número</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="cep"
+                      aria-label="CEP"
+                      [disabled]="!editar"
+                      formControlName="numero"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-2">
+                  <div class="form-group">
+                    <label class="custom-label" for="uf">Estado</label>
+                    <select
+                      class="form-control"
+                      id="uf"
+                      [disabled]="!editar"
+                      formControlName="uf"
+                    >
+                      <option [value]="null" selected>Selecione a UF</option>
+                      <option *ngFor="let uf of ufs" [value]="uf.sigla">
+                        {{ uf.nome }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="form-group">
+                    <label class="custom-label" for="uf">Município*</label>
+                    <select
+                      class="form-control"
+                      id="uf"
+                      [disabled]="!editar"
+                      formControlName="municipio"
+                    >
+                      <option [value]="null" selected>
+                        Selecione o Município
+                      </option>
+                      <option *ngFor="let uf of ufs" [value]="uf.sigla">
+                        {{ uf.nome }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-lg-2">
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary w-100"
+                    (click)="toggleEditar()"
+                  >
+                    Editar Campos
+                  </button>
+                </div>
+                <div class="col-lg-2">
+                  <button
+                    type="button"
+                    [disabled]="!editar"
+                    class="btn btn-primary w-100"
+                  >
+                    Salvar Alterações
+                  </button>
                 </div>
               </div>
             </div>
-            <div class="row mt-3">
-              <div class="col-lg-2">
-                <button type="button" class="btn btn-outline-primary w-100">
-                  Editar Campos
-                </button>
-              </div>
-              <div class="col-lg-2">
-                <button type="button" disabled class="btn btn-primary w-100">
-                  Salvar Alterações
-                </button>
-              </div>
-            </div>
-          </div>
+          </form>
         </p-tabPanel>
         <p-tabPanel header="ESTRUTURA">
           <div class="tab-content">
-            <div class="row">
-              <div class="form-group col-lg-2 col-md-3">
-                <label for="select-tipo" class="custom-label"
-                  >Tipo de Estrutura</label
-                >
-                <select class="form-control" id="select-tipo">
-                  <option *ngFor="let tipo of tiposEstruturas" [value]="tipo">
-                    {{ tipo.nome }}
-                  </option>
-                </select>
-              </div>
-              <div class="form-group col-lg-2 col-md-3">
-                <label for="select-tipo" class="custom-label">Câmara *</label>
-                <select class="form-control" id="select-tipo">
-                  <option [value]="null">Não aplicável</option>
-                  <option value="1">01</option>
-                  <option value="2">02</option>
-                  <option value="3">03</option>
-                  <option value="4">04</option>
-                  <option value="5">05</option>
-                </select>
-              </div>
-              <div class="form-group col-lg-2 col-md-3">
-                <label for="select-tipo" class="custom-label">Células *</label>
-                <select class="form-control" id="select-tipo">
-                  <option value="1">01</option>
-                  <option value="2">02</option>
-                  <option value="3">03</option>
-                  <option value="4">04</option>
-                </select>
-              </div>
-              <div class="form-group col-lg-2 col-md-3">
-                <label for="select-tipo" class="custom-label">Material *</label>
-                <select class="form-control" id="select-tipo">
-                  <option value="1">01</option>
-                  <option value="2">02</option>
-                  <option value="3">03</option>
-                  <option value="4">04</option>
-                </select>
-              </div>
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <label for="capacidade" class="custom-label"
-                    >Capacidade *</label
+            <form [formGroup]="formSecondStep" (ngSubmit)="validarSecondStep()">
+              <div class="row">
+                <div class="form-group col-lg-2 col-md-3">
+                  <label for="select-tipo" class="custom-label"
+                    >Tipo de Estrutura</label
                   >
-                  <input
-                    type="text"
+                  <select
                     class="form-control"
-                    id="capacidade"
-                    placeholder="Ex: 00 m³"
-                    aria-label="Nome da Estrutura"
-                  />
-                </div>
-              </div>
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <label class="custom-label" for="situacao">Situações</label>
-                  <select class="form-control" id="situacao">
-                    <option [value]="null" selected>Situação</option>
+                    id="select-tipo"
+                    formControlName="tipoEstrutura"
+                  >
                     <option
-                      *ngFor="let situacao of situacoes"
-                      [value]="situacao"
+                      *ngFor="let tipo of tiposEstruturas"
+                      [value]="tipo.id"
                     >
-                      {{ situacao.nome }}
+                      {{ tipo.nome }}
                     </option>
                   </select>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-2">
-                <label class="custom-label" for="date_construcao"
-                  >Data de Construção</label
-                >
-                <p-calendar id="date_construcao"></p-calendar>
-              </div>
-              <div class="col-lg-2">
-                <label class="custom-label" for="date_operacao"
-                  >Data de Operação</label
-                >
-                <p-calendar id="date_operacao"></p-calendar>
-              </div>
-            </div>
-
-            <div class="row mt-4 mb-2">
-              <div class="col">
-                <h3>Dimensões</h3>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <label for="largura" class="custom-label">Largura *</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="largura"
-                    placeholder="Ex: 00 m"
-                    aria-label="Nome da Estrutura"
-                  />
-                </div>
-              </div>
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <label for="comprimento" class="custom-label"
-                    >Comprimento *</label
+                  <div
+                    *ngIf="
+                      formSecondStep.controls['tipoEstrutura'].invalid &&
+                      formSecondStep.controls['tipoEstrutura'].touched
+                    "
+                    style="color: red"
                   >
-                  <input
-                    type="text"
+                    *O campo obrigatório.
+                  </div>
+                </div>
+                <div class="form-group col-lg-2 col-md-3">
+                  <label for="select-tipo" class="custom-label">Câmara *</label>
+                  <select
                     class="form-control"
-                    id="comprimento"
-                    placeholder="Ex: 00 m"
-                    aria-label="Comprimento"
-                  />
+                    id="select-tipo"
+                    formControlName="camara"
+                  >
+                    <option [value]="null">Não aplicável</option>
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                    <option value="5">05</option>
+                  </select>
+                  <div
+                    *ngIf="
+                      formSecondStep.controls['camara'].invalid &&
+                      formSecondStep.controls['camara'].touched
+                    "
+                    style="color: red"
+                  >
+                    *O campo obrigatório.
+                  </div>
+                </div>
+                <div class="form-group col-lg-2 col-md-3">
+                  <label for="select-tipo" class="custom-label"
+                    >Células *</label
+                  >
+                  <select
+                    class="form-control"
+                    id="select-tipo"
+                    formControlName="celula"
+                  >
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                  </select>
+                  <div
+                    *ngIf="
+                      formSecondStep.controls['celula'].invalid &&
+                      formSecondStep.controls['celula'].touched
+                    "
+                    style="color: red"
+                  >
+                    *O campo obrigatório.
+                  </div>
+                </div>
+                <div class="form-group col-lg-2 col-md-3">
+                  <label for="select-tipo" class="custom-label"
+                    >Material *</label
+                  >
+                  <select
+                    class="form-control"
+                    id="select-tipo"
+                    formControlName="material"
+                  >
+                    <option [value]="null">Selecione o Material</option>
+                    <option
+                      *ngFor="let material of materiais"
+                      [value]="material.id"
+                    >
+                      {{ material.nome }}
+                    </option>
+                  </select>
+                  <div
+                    *ngIf="
+                      formSecondStep.controls['material'].invalid &&
+                      formSecondStep.controls['material'].touched
+                    "
+                    style="color: red"
+                  >
+                    *O campo obrigatório.
+                  </div>
+                </div>
+                <div class="col-lg-2">
+                  <div class="form-group">
+                    <label for="capacidade" class="custom-label"
+                      >Capacidade *</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="capacidade"
+                      placeholder="Ex: 00 m³"
+                      aria-label="Nome da Estrutura"
+                      formControlName="capacidade"
+                    />
+                    <div
+                      *ngIf="
+                        formSecondStep.controls['capacidade'].invalid &&
+                        formSecondStep.controls['capacidade'].touched
+                      "
+                      style="color: red"
+                    >
+                      *O campo obrigatório.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2">
+                  <div class="form-group">
+                    <label class="custom-label" for="situacao">Situações</label>
+                    <select
+                      class="form-control"
+                      id="situacao"
+                      formControlName="situacao"
+                    >
+                      <option [value]="null" selected>Situação</option>
+                      <option
+                        *ngFor="let situacao of situacoes"
+                        [value]="situacao.id"
+                      >
+                        {{ situacao.nome }}
+                      </option>
+                    </select>
+                    <div
+                      *ngIf="
+                        formSecondStep.controls['situacao'].invalid &&
+                        formSecondStep.controls['situacao'].touched
+                      "
+                      style="color: red"
+                    >
+                      *O campo obrigatório.
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <label for="diâmetro" class="custom-label">Diâmetro *</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="diâmetro"
-                    placeholder="Ex: 00 m"
-                    aria-label="Diâmetro"
-                  />
+              <div class="row">
+                <div class="col-lg-2">
+                  <label class="custom-label" for="date_construcao"
+                    >Data de Construção</label
+                  >
+                  <p-calendar
+                    id="date_construcao"
+                    formControlName="dataConstrucao"
+                  ></p-calendar>
+                  <div
+                    *ngIf="
+                      formSecondStep.controls['dataConstrucao'].invalid &&
+                      formSecondStep.controls['dataConstrucao'].touched
+                    "
+                    style="color: red"
+                  >
+                    *O campo obrigatório.
+                  </div>
+                </div>
+                <div class="col-lg-2">
+                  <label class="custom-label" for="date_operacao"
+                    >Data de Operação</label
+                  >
+                  <p-calendar
+                    id="date_operacao"
+                    formControlName="dataOperacao"
+                  ></p-calendar>
+                  <div
+                    *ngIf="
+                      formSecondStep.controls['dataOperacao'].invalid &&
+                      formSecondStep.controls['dataOperacao'].touched
+                    "
+                    style="color: red"
+                  >
+                    *O campo obrigatório.
+                  </div>
                 </div>
               </div>
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <label for="altura" class="custom-label">Altura *</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="altura"
-                    placeholder="Ex: 00 m"
-                    aria-label="Altura"
-                  />
+
+              <div class="row mt-4 mb-2">
+                <div class="col">
+                  <h3>Dimensões</h3>
                 </div>
               </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-lg-2">
-                <button type="button" class="btn btn-outline-primary w-100">
-                  Editar Campos
-                </button>
+
+              <div class="row">
+                <div class="col-lg-2">
+                  <div class="form-group">
+                    <label for="largura" class="custom-label">Largura *</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="largura"
+                      placeholder="Ex: 00 m"
+                      aria-label="Nome da Estrutura"
+                      formControlName="largura"
+                    />
+                    <div
+                      *ngIf="
+                        formSecondStep.controls['largura'].invalid &&
+                        formSecondStep.controls['largura'].touched
+                      "
+                      style="color: red"
+                    >
+                      *O campo obrigatório.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2">
+                  <div class="form-group">
+                    <label for="comprimento" class="custom-label"
+                      >Comprimento *</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="comprimento"
+                      placeholder="Ex: 00 m"
+                      aria-label="Comprimento"
+                      formControlName="comprimento"
+                    />
+                    <div
+                      *ngIf="
+                        formSecondStep.controls['comprimento'].invalid &&
+                        formSecondStep.controls['comprimento'].touched
+                      "
+                      style="color: red"
+                    >
+                      *O campo obrigatório.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2">
+                  <div class="form-group">
+                    <label for="diâmetro" class="custom-label"
+                      >Diâmetro *</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="diâmetro"
+                      placeholder="Ex: 00 m"
+                      aria-label="Diâmetro"
+                      formControlName="diametro"
+                    />
+                    <div
+                      *ngIf="
+                        formSecondStep.controls['diametro'].invalid &&
+                        formSecondStep.controls['diametro'].touched
+                      "
+                      style="color: red"
+                    >
+                      *O campo obrigatório.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2">
+                  <div class="form-group">
+                    <label for="altura" class="custom-label">Altura *</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="altura"
+                      placeholder="Ex: 00 m"
+                      aria-label="Altura"
+                      formControlName="altura"
+                    />
+                    <div
+                      *ngIf="
+                        formSecondStep.controls['altura'].invalid &&
+                        formSecondStep.controls['altura'].touched
+                      "
+                      style="color: red"
+                    >
+                      *O campo obrigatório.
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="col-lg-2">
-                <button type="button" disabled class="btn btn-primary w-100">
-                  Salvar Alterações
-                </button>
+              <div class="row mt-3">
+                <div class="col-lg-2">
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary w-100"
+                    (click)="toggleEditar()"
+                  >
+                    Editar Campos
+                  </button>
+                </div>
+                <div class="col-lg-2">
+                  <button
+                    type="button"
+                    [disabled]="!editar"
+                    class="btn btn-primary w-100"
+                  >
+                    Salvar Alterações
+                  </button>
+                </div>
               </div>
-            </div>
+            </form>
           </div>
         </p-tabPanel>
         <p-tabPanel header="ANEXOS" styleClass="mb-5">
@@ -307,7 +507,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-4 col-6">
+            <div class="col">
               <div class="form-group">
                 <!-- <label for="nome-estrutura" class="custom-label">&nbsp;</label> -->
                 <input
@@ -319,18 +519,7 @@
                 />
               </div>
             </div>
-            <div class="col-lg-4 col-6">
-              <div class="form-group">
-                <!-- <label for="nome-estrutura" class="custom-label">&nbsp;</label> -->
-                <input
-                  type="text"
-                  class="form-control"
-                  id="nome-estrutura"
-                  placeholder="Pesquisar Descritivo ou Nome do Arquivo"
-                  aria-label="Nome da Estrutura"
-                />
-              </div>
-            </div>
+
             <!-- <div class="col-12 col-lg-1"></div> -->
             <div class="col-lg-4 col-md-6 col-12">
               <div class="row">
@@ -344,7 +533,11 @@
                   </button>
                 </div>
                 <div class="col">
-                  <button type="button" class="btn btn-success w-100">
+                  <button
+                    type="button"
+                    class="btn btn-success w-100"
+                    (click)="openAnexoDialog()"
+                  >
                     <i
                       class="fa fa-plus"
                       style="margin-right: 10px; color: white"
@@ -358,31 +551,40 @@
           <div class="row pt-3">
             <div class="col-xxl-4 col-12">
               <p class="table-title">Plantas</p>
-              <p-table [value]="anexos" styleClass="p-datatable-striped w-100">
+              <p-table
+                [value]="anexosPlantas()"
+                styleClass="p-datatable-striped w-100"
+              >
                 <ng-template pTemplate="header" style="height: 60px !important">
                   <tr class="custom-thead">
                     <th>DESCRITIVO</th>
                     <th>ARQUIVO</th>
-                    <th style="width: 128px; text-align: center">AÇÕES</th>
+                    <th style="width: 192px; text-align: center">AÇÕES</th>
                   </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-estrutura>
                   <tr>
                     <td>{{ estrutura.descricao }}</td>
-                    <td>{{ estrutura.nome }}</td>
+                    <td>{{ estrutura.arquivo.name }}</td>
                     <td class="p-col-shrink actions-column">
                       <div class="button-container">
                         <button
                           pButton
-                          icon="pi pi-eye"
+                          icon="pi pi-download"
                           class="p-button-text custom-button"
-                          (click)="visualizarEstrutura(estrutura)"
+                          (click)="downloadArquivo(estrutura)"
                         ></button>
                         <button
                           pButton
-                          icon="pi pi-building"
+                          icon="pi pi-eye"
                           class="p-button-text custom-button"
-                          (click)="inspecionarEstrutura(estrutura)"
+                          (click)="downloadArquivo(estrutura)"
+                        ></button>
+                        <button
+                          pButton
+                          icon="pi pi-times-circle"
+                          class="p-button-text custom-button"
+                          (click)="deleteAnexo(estrutura)"
                         ></button>
                       </div>
                     </td>
@@ -392,7 +594,10 @@
             </div>
             <div class="col-xxl-4 col-12">
               <p class="table-title">Fotografias</p>
-              <p-table [value]="anexos" styleClass="p-datatable-striped w-100">
+              <p-table
+                [value]="anexosFotografias()"
+                styleClass="p-datatable-striped w-100"
+              >
                 <ng-template pTemplate="header">
                   <tr class="custom-thead">
                     <th
@@ -406,32 +611,38 @@
                     </th>
                     <th>DESCRITIVO</th>
                     <th>ARQUIVO</th>
-                    <th style="width: 128px; text-align: center">AÇÕES</th>
+                    <th style="width: 192px; text-align: center">AÇÕES</th>
                   </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-estrutura>
                   <tr>
                     <td style="padding-left: 5px; padding-right: 5px">
                       <img
-                        src="assets/images/image-placeholder.svg"
+                        [src]="getURLFromArquivo(estrutura.arquivo)"
                         style="height: 100% !important; width: 100% !important"
                       />
                     </td>
                     <td>{{ estrutura.descricao }}</td>
-                    <td>{{ estrutura.nome }}</td>
+                    <td>{{ estrutura.arquivo.name }}</td>
                     <td class="p-col-shrink actions-column">
                       <div class="button-container">
                         <button
                           pButton
-                          icon="pi pi-eye"
+                          icon="pi pi-download"
                           class="p-button-text custom-button"
-                          (click)="visualizarEstrutura(estrutura)"
+                          (click)="downloadArquivo(estrutura.arquivo)"
                         ></button>
                         <button
                           pButton
-                          icon="pi pi-building"
+                          icon="pi pi-eye"
                           class="p-button-text custom-button"
-                          (click)="inspecionarEstrutura(estrutura)"
+                          (click)="abrirImagem(estrutura.arquivo)"
+                        ></button>
+                        <button
+                          pButton
+                          icon="pi pi-times-circle"
+                          class="p-button-text custom-button"
+                          (click)="deleteAnexo(estrutura)"
                         ></button>
                       </div>
                     </td>
@@ -441,37 +652,66 @@
             </div>
             <div class="col-xxl-4 col-12">
               <p class="table-title">Documentos</p>
-              <p-table [value]="anexos" styleClass="p-datatable-striped w-100">
+              <p-table
+                [value]="anexosDocumentos()"
+                styleClass="p-datatable-striped w-100"
+              >
                 <ng-template pTemplate="header">
                   <tr class="custom-thead">
                     <th>DESCRITIVO</th>
                     <th>ARQUIVO</th>
-                    <th style="width: 128px; text-align: center">AÇÕES</th>
+                    <th style="width: 192px; text-align: center">AÇÕES</th>
                   </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-estrutura>
                   <tr>
                     <td>{{ estrutura.descricao }}</td>
-                    <td>{{ estrutura.nome }}</td>
+                    <td>{{ estrutura.arquivo.name }}</td>
                     <td class="p-col-shrink actions-column">
                       <div class="button-container">
                         <button
                           pButton
-                          icon="pi pi-eye"
+                          icon="pi pi-download"
                           class="p-button-text custom-button"
-                          (click)="visualizarEstrutura(estrutura)"
+                          (click)="downloadArquivo(estrutura)"
                         ></button>
                         <button
                           pButton
-                          icon="pi pi-building"
+                          icon="pi pi-eye"
                           class="p-button-text custom-button"
-                          (click)="inspecionarEstrutura(estrutura)"
+                          (click)="downloadArquivo(estrutura)"
+                        ></button>
+                        <button
+                          pButton
+                          icon="pi pi-times-circle"
+                          class="p-button-text custom-button"
+                          (click)="deleteAnexo(estrutura)"
                         ></button>
                       </div>
                     </td>
                   </tr>
                 </ng-template>
               </p-table>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-lg-2">
+              <button
+                type="button"
+                class="btn btn-outline-primary w-100"
+                (click)="toggleEditar()"
+              >
+                Editar Campos
+              </button>
+            </div>
+            <div class="col-lg-2">
+              <button
+                type="button"
+                [disabled]="!editar"
+                class="btn btn-primary w-100"
+              >
+                Salvar Alterações
+              </button>
             </div>
           </div>
         </p-tabPanel>

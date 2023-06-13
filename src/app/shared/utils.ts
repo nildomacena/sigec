@@ -1,3 +1,4 @@
+import { ILocalidade } from "../interfaces/localidade";
 import { IMaterial } from "../interfaces/material";
 import { ISituacao } from "../interfaces/situacao";
 import { ITipoAnexo } from "../interfaces/tipo-anexo";
@@ -79,4 +80,13 @@ export class Utils {
     { id: 2, nome: 'Plantas' },
     { id: 3, nome: 'Documentos' },
   ];
+
+  //Gere uma lista de localidades para ser usada como exemplo na interface ILocalidade
+  static localidades: ILocalidade[] = [
+    { id: 1, endereco: 'Rua E', cep: '55555-555', numero: '50', uf: { sigla: 'SP', nome: 'São Paulo' }, municipio: 'São Paulo', },
+    { id: 2, endereco: 'Rua F', cep: '66666-666', numero: '60', uf: { sigla: 'SP', nome: 'São Paulo' }, municipio: 'Santos', },
+    { id: 3, endereco: 'Rua G', cep: '77777-777', numero: '70', uf: { sigla: 'SP', nome: 'São Paulo' }, municipio: 'São Vicente', },
+    { id: 4, endereco: 'Rua H', cep: '88888-888', numero: '80', uf: { sigla: 'SP', nome: 'São Paulo' }, municipio: 'Guarujá', },
+    { id: 5, endereco: 'Rua I', cep: '99999-999', numero: '90', uf: { sigla: 'SP', nome: 'São Paulo' }, municipio: 'Praia Grande', },
+  ]
 }
