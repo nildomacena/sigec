@@ -45,6 +45,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmDialogComponent } from './components/dialogs/confirm-dialog/confirm-dialog.component';
 import { LocalidadesComponent } from './pages/localidades/localidades.component';
 import { LocalidadeDialogComponent } from './components/dialogs/localidade-dialog/localidade-dialog.component';
+import { ParametrosComponent } from './pages/parametros/parametros.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { LocalidadeDialogComponent } from './components/dialogs/localidade-dialo
     IncluirUsuarioDialogComponent,
     ConfirmDialogComponent,
     LocalidadesComponent,
-    LocalidadeDialogComponent
+    LocalidadeDialogComponent,
+    ParametrosComponent
   ],
   imports: [
     FormsModule,

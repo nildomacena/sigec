@@ -106,8 +106,11 @@ export class AppComponent implements OnInit {
   }
 
   goToLocalidades() {
-    console.log('goToLocalidades');
     this.router.navigate(['/localidades']);
+  }
+
+  goToParametros() {
+    this.router.navigate(['/parametros']);
   }
 
   logout() {

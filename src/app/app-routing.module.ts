@@ -8,6 +8,7 @@ import { ListarEstruturasComponent } from './pages/estruturas/listar-estruturas/
 import { InspecaoOperacionalComponent } from './pages/inspecoes/inspecao-operacional/inspecao-operacional.component';
 import { ListarInspecoesComponent } from './pages/inspecoes/listar-inspecoes/listar-inspecoes.component';
 import { LocalidadesComponent } from './pages/localidades/localidades.component';
+import { ParametrosComponent } from './pages/parametros/parametros.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'cadastrar-inspecao-op/:estruturaId', component: InspecaoOperacionalComponent },
   { path: 'listar-inspecoes/:estruturaId', component: ListarInspecoesComponent },
   { path: 'localidades', component: LocalidadesComponent },
+  { path: 'parametros', component: ParametrosComponent },
 
 ];
 
